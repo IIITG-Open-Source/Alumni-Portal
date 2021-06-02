@@ -1,8 +1,11 @@
 import './App.css';
+import React from 'react';
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import Home from './homepage/home';
-import Register from './register/register';
+//import Register from './register/register';
+import Multistepform from './components/multistepform';
 import BlogPage from './blog_alumni/blog'
+
 function App() {
   return (
     <BrowserRouter>
@@ -11,7 +14,7 @@ function App() {
            <Home/>
          </Route>
          <Route path='/register' exact>
-           <Register/>
+            <Multistepform/>
          </Route>
          <Route path='/blogs' exact>
            <BlogPage/>
