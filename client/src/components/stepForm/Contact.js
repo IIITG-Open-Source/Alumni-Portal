@@ -50,16 +50,17 @@ export const Contact = ({ formData, setForm, navigation }) => {
         autoComplete="off"
         fullWidth
       />
-      <div style={{ marginTop: "1rem" }}>
+      <div style={{ marginTop: "2rem" }}>
         <Button
           color="secondary"
           variant="contained"
-          style={{ marginRight: "1rem" }}
+          style={{ float: "left" , fontSize: 12}}
           onClick={() => navigation.previous()}
         >
           Back
         </Button>
         <Button
+          style={{float: "right"  , fontSize: 12}}
           color="primary"
           variant="contained"
           onClick={() => navigation.next()}

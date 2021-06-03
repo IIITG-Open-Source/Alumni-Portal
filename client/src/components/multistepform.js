@@ -12,8 +12,7 @@ const defaultData = {
   firstName: "",
   lastName: "",
   residence: "",
-  password1: "",
-  password2: "",
+  password: "",
 
   phone: "",
   email: "",

@@ -1,0 +1,38 @@
+
+  
+  /* input {
+    margin: 0 auto;
+    background-color: black;
+    opacity: 50%;
+    color: white;
+    margin-top: 10px;
+    width: 300px;
+    height: 59px;
+    font-size: 22px;
+    margin-bottom: 14px;
+    max-width: 527px;
+    padding: 0 10%;
+  } */
+  
+  .pass-wrapper {
+    position: relative;
+    display: flex;
+    margin-bottom: 0px;
+  }
+  
+  i {
+    position: absolute;
+    top: 41%;
+    right: 4%;
+  }
+
+  i:hover {
+    color: #4d5754;
+    cursor: pointer;
+  }
+  
+  button {
+    width: 40%;
+    height: 50px;
+    margin: 10%;
+  }
