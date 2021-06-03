@@ -3,15 +3,16 @@ import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-export const Address = ({ formData, setForm, navigation }) => {
-  const { address, city, state, zip } = formData;
+export const Professional = ({ formData, setForm, navigation }) => {
+  const { occupation, workingAt, position, achievements } = formData;
+
   return (
     <Container maxWidth="xs">
-      <h3>Address</h3>
+      <h3><em>Professional details</em></h3>
       <TextField
-        label="Address"
-        name="address"
-        value={address}
+        label="Occupation"
+        name="occupation"
+        value={occupation}
         onChange={setForm}
         margin="normal"
         variant="outlined"
@@ -19,9 +20,9 @@ export const Address = ({ formData, setForm, navigation }) => {
         fullWidth
       />
       <TextField
-        label="City"
-        name="city"
-        value={city}
+        label="Working at"
+        name="workingAt"
+        value={workingAt}
         onChange={setForm}
         margin="normal"
         variant="outlined"
@@ -29,9 +30,9 @@ export const Address = ({ formData, setForm, navigation }) => {
         fullWidth
       />
       <TextField
-        label="State"
-        name="state"
-        value={state}
+        label="Position"
+        name="position"
+        value={position}
         onChange={setForm}
         margin="normal"
         variant="outlined"
@@ -39,10 +40,9 @@ export const Address = ({ formData, setForm, navigation }) => {
         fullWidth
       />
       <TextField
-        label="Zip"
-        name="zip"
-        type="number"
-        value={zip}
+        label="Achievements"
+        name="achievements"
+        value={achievements}
         onChange={setForm}
         margin="normal"
         variant="outlined"

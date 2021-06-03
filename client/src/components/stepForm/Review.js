@@ -16,32 +16,49 @@ export const Review = ({ formData, navigation }) => {
   const {
     firstName,
     lastName,
-    nickName,
-    address,
-    city,
-    state,
-    zip,
+    residence,
+
     phone,
     email,
+    linkedin,
+    github,
+
+    year,
+    roll,
+    tech,
+    branch,
+
+    occupation,
+    workingAt,
+    position,
+    achievements
   } = formData;
 
   return (
     <Container maxWidth='sm'>
-      <h3>Review</h3>
-      <RenderAccordion summary="Names" go={ go } details={[
+      <h3><em>Review your details</em></h3>
+      <RenderAccordion summary="Personal" go={ go } details={[
         { 'First Name': firstName },
         { 'Last Name': lastName },
-        { 'Nick Name': nickName },
-      ]} />
-      <RenderAccordion summary="Address" go={ go } details={[
-        { 'Address': address },
-        { 'City': city },
-        { 'State': state },
-        { 'Zip': zip },
+        { 'Residence Country': residence },
       ]} />
       <RenderAccordion summary="Contact" go={ go } details={[
-        { 'Phone': phone },
-        { 'Email': email },
+        { 'Phone Number': phone },
+        { 'Email ID': email },
+        { 'LinkedIn': linkedin },
+        { 'GitHub': github },
+      ]} />
+      <RenderAccordion summary="College" go={ go } details={[
+        { 'Year of Graduation': year },
+        { 'Institute Roll Number': roll },
+        { 'BTech / MTech / PhD': tech },
+        { 'Branch': branch },
+      ]} />
+      <RenderAccordion summary="Professional" go={ go } details={[
+        { 'Occupation': occupation },
+        { 'Working at': workingAt },
+        { 'Position': position },
+        { 'Achievements': achievements },
       ]} />
       <Button
         color="primary"

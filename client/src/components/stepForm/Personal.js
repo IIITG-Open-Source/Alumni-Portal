@@ -3,12 +3,12 @@ import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-export const Names = ({ formData, setForm, navigation }) => {
-  const { firstName, lastName, nickName } = formData;
-
+export const Personal = ({ formData, setForm, navigation }) => {
+  const { firstName, lastName, residence, password1, password2 } = formData;
+  
   return (
     <Container maxWidth="xs">
-      <h3>Names</h3>
+      <h3><em>Create your account</em></h3>
       <TextField
         label="First Name"
         name="firstName"
@@ -30,9 +30,31 @@ export const Names = ({ formData, setForm, navigation }) => {
         fullWidth
       />
       <TextField
-        label="Nick Name"
-        name="nickName"
-        value={nickName}
+        label="Residence country"
+        name="residence"
+        value={residence}
+        onChange={setForm}
+        margin="normal"
+        variant="outlined"
+        autoComplete="off"
+        fullWidth
+      />
+      <TextField
+        label="Password"
+        name="password1"
+        value={password1}
+        type="password"
+        onChange={setForm}
+        margin="normal"
+        variant="outlined"
+        autoComplete="off"
+        fullWidth
+      />
+      <TextField
+        label="Re-enter password"
+        name="password2"
+        value={password2}
+        type="password"
         onChange={setForm}
         margin="normal"
         variant="outlined"
@@ -41,7 +63,6 @@ export const Names = ({ formData, setForm, navigation }) => {
       />
       <Button
         variant="contained"
-        fullWidth
         color="primary"
         style={{ marginTop: "1rem" }}
         onClick={() => navigation.next()}

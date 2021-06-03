@@ -1,27 +1,41 @@
 import React from 'react';
 import { useForm, useStep } from 'react-hooks-helper';
-import { Names } from "./stepForm/Names";
-import { Address } from "./stepForm/Address";
+
+import { Personal } from "./stepForm/Personal";
 import { Contact } from "./stepForm/Contact";
+import { College } from "./stepForm/College";
+import { Professional } from "./stepForm/Professional";
 import { Review } from "./stepForm/Review";
 import { Submit } from "./stepForm/Submit";
 
 const defaultData = {
   firstName: "",
   lastName: "",
-  nickName: "",
-  address: "",
-  city: "",
-  state: "",
-  zip: "",
+  residence: "",
+  password1: "",
+  password2: "",
+
   phone: "",
   email: "",
+  linkedin: "",
+  github: "",
+
+  year: "",
+  roll: "",
+  tech: "",
+  branch: "",
+
+  occupation: "",
+  workingAt: "",
+  position: "",
+  achievements: ""
 };
 
 const steps = [
-  { id: "names" },
-  { id: "address" },
+  { id: "personal" },
   { id: "contact" },
+  { id: "college" },
+  { id: "professional" },
   { id: "review" },
   { id: "submit" },
 ];
@@ -36,12 +50,14 @@ const MultiStepForm = () => {
   const props = { formData, setForm, navigation };
 
   switch (step.id) {
-    case "names":
-      return <Names {...props} />;
-    case "address":
-      return <Address {...props} />;
+    case "personal":
+      return <Personal {...props} />;
     case "contact":
       return <Contact {...props} />;
+    case "college":
+      return <College {...props} />;
+      case "professional":
+        return <Professional {...props} />;
     case "review":
       return <Review {...props} />;
     case "submit":
@@ -50,7 +66,7 @@ const MultiStepForm = () => {
 
   return (
     <div>
-      <h1>Multi step form</h1>
+      <h1>Registration form</h1>
     </div>
   );
 };
