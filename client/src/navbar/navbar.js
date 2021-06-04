@@ -17,18 +17,18 @@ const NavBar=()=>{
               <a class="nav-link" >
                 <Link to='/'>Home</Link> 
                 <span class="sr-only">(current)</span>
-                </a>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" >
+              <a class="nav-link"  >
                 <Link to='/blogs'>Blogs</Link>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Login</a>
+              <a class="nav-link" >Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" >
+              <a class="nav-link"  >
                 <Link to='/register'>Register</Link>
               </a>
             </li>
