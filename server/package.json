@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.11.1",
+    "mongoose": "^5.12.12",
+    "react-hooks-helper": "^1.6.0"
+  }
+}

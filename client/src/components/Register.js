@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useForm, useStep } from 'react-hooks-helper';
 
 import { Personal } from "./Personal";
@@ -7,7 +7,6 @@ import { College } from "./College";
 import { Professional } from "./Professional";
 import { Review } from "./Review";
 import { Submit } from "./Submit";
-
 
 const defaultData = {
   firstName: "",
@@ -31,6 +30,7 @@ const defaultData = {
   achievements: ""
 };
 
+  
 const steps = [
   { id: "personal" },
   { id: "contact" },
@@ -40,7 +40,11 @@ const steps = [
   { id: "submit" },
 ];
 
+
 const Register = () => {
+
+
+
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({
     steps,

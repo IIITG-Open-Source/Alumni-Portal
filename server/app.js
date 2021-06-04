@@ -1,22 +1,31 @@
 const express = require('express')
+const dotenv = require('dotenv')
 const bodyParser = require('body-parser')
 const { check, validationResult } = require('express-validator')
-
+const mongoose = require('mongoose')
 const app = express()
 const port = 3000
 
-// Set Templating Enginge
-app.set('view engine', 'ejs')
+dotenv.config({path:'./config.env'})
+
+require('./db/conn')
+
+//Middleware
+const middleware=(req,res,next)=>{
+    console.log(`Hello my middleware`);
+    next();
+}
+
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // Navigation
 app.get('/', (req, res)=> {
-    res.render('home')
+    res.send(`home`);
 })
 
-app.get('/register', (req, res)=> {
-    res.render('register')
+app.get('/register',middleware, (req, res)=> {
+    res.send(`register`);
 })
 
 app.post('/register', urlencodedParser, [
@@ -39,7 +48,9 @@ app.post('/register', urlencodedParser, [
     }
 
 })
-
+app.get('/login',(req,res)=>{
+    res.send(`Login`)
+})
 app.listen(port, () => {
     console.log(`App listening on port: ${port}`)
 })
