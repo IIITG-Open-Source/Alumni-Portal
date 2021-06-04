@@ -2,15 +2,18 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import NavBar from '../navbar/navbar';
 
 export const Contact = ({ formData, setForm, navigation }) => {
-  const { phone, email } = formData;
+  const { phone, email, linkedin, github } = formData;
 
   return (
+    <div>
+      <NavBar/>
     <Container maxWidth="xs">
-      <h3>Contact</h3>
+      <h3><em>Contact details</em></h3>
       <TextField
-        label="Phone"
+        label="Phone number"
         name="phone"
         value={phone}
         onChange={setForm}
@@ -20,25 +23,47 @@ export const Contact = ({ formData, setForm, navigation }) => {
         fullWidth
       />
       <TextField
-        label="E-Mail"
+        label="Email ID"
         name="email"
         value={email}
+        type="email"
         onChange={setForm}
         margin="normal"
         variant="outlined"
         autoComplete="off"
         fullWidth
       />
-      <div style={{ marginTop: "1rem" }}>
+      <TextField
+        label="LinkedIn"
+        name="linkedin"
+        value={linkedin}
+        onChange={setForm}
+        margin="normal"
+        variant="outlined"
+        autoComplete="off"
+        fullWidth
+      />
+      <TextField
+        label="GitHub"
+        name="github"
+        value={github}
+        onChange={setForm}
+        margin="normal"
+        variant="outlined"
+        autoComplete="off"
+        fullWidth
+      />
+      <div style={{ marginTop: "2rem" }}>
         <Button
           color="secondary"
           variant="contained"
-          style={{ marginRight: "1rem" }}
+          style={{ float: "left" , fontSize: 12}}
           onClick={() => navigation.previous()}
         >
           Back
         </Button>
         <Button
+          style={{float: "right"  , fontSize: 12}}
           color="primary"
           variant="contained"
           onClick={() => navigation.next()}
@@ -47,5 +72,6 @@ export const Contact = ({ formData, setForm, navigation }) => {
         </Button>
       </div>
     </Container>
+    </div>
   );
 };

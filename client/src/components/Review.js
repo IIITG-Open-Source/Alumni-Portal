@@ -11,48 +11,70 @@ import ListItemText from '@material-ui/core/ListItemText'
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 
+import NavBar from '../navbar/navbar';
+
 export const Review = ({ formData, navigation }) => {
   const { go } = navigation;
   const {
     firstName,
     lastName,
-    nickName,
-    address,
-    city,
-    state,
-    zip,
+    residence,
+
     phone,
     email,
+    linkedin,
+    github,
+
+    year,
+    roll,
+    tech,
+    branch,
+
+    occupation,
+    workingAt,
+    position,
+    achievements
   } = formData;
 
   return (
-    <Container maxWidth='sm'>
-      <h3>Review</h3>
-      <RenderAccordion summary="Names" go={ go } details={[
+    <div>
+      <NavBar/>
+      <Container maxWidth='sm'>
+      <h3><em>Review your details</em></h3>
+      <RenderAccordion summary="Personal" go={ go } details={[
         { 'First Name': firstName },
         { 'Last Name': lastName },
-        { 'Nick Name': nickName },
-      ]} />
-      <RenderAccordion summary="Address" go={ go } details={[
-        { 'Address': address },
-        { 'City': city },
-        { 'State': state },
-        { 'Zip': zip },
+        { 'Residence Country': residence },
       ]} />
       <RenderAccordion summary="Contact" go={ go } details={[
-        { 'Phone': phone },
-        { 'Email': email },
+        { 'Phone Number': phone },
+        { 'Email ID': email },
+        { 'LinkedIn': linkedin },
+        { 'GitHub': github },
+      ]} />
+      <RenderAccordion summary="College" go={ go } details={[
+        { 'Year of Graduation': year },
+        { 'Institute Roll Number': roll },
+        { 'BTech / MTech / PhD': tech },
+        { 'Branch': branch },
+      ]} />
+      <RenderAccordion summary="Professional" go={ go } details={[
+        { 'Occupation': occupation },
+        { 'Working at': workingAt },
+        { 'Position': position },
+        { 'Achievements': achievements },
       ]} />
       <Button
         color="primary"
         variant="contained"
-        style={{ marginTop: '1.5rem' }}
+        style={{ marginTop: '2rem', float: "right"  , fontSize: 12 }}
         onClick={() => go('submit')}
       >
         Submit
       </Button>
 
     </Container>
+    </div>
   );
 };
 

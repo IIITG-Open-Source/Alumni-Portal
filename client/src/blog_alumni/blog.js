@@ -1,8 +1,11 @@
 import React,{useState} from 'react';
+import NavBar from '../navbar/navbar';
+
 import './blog.css';
 const blogPage=()=>{
   return(
     <div>
+      <NavBar/>
         <div class="header">
          <h2>write a Post...🖉 </h2>
        </div>

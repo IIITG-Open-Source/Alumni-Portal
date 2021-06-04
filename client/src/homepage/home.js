@@ -20,7 +20,7 @@ const Home=()=>{
                         <div class='searchIcon'>
                         <FontAwesomeIcon icon={faSearch}/>
                         </div>
-                        
+                          
                     </div>
                     <div class="dropdown searchItem">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

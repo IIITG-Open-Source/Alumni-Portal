@@ -2,16 +2,20 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import NavBar from '../navbar/navbar';
 
-export const Address = ({ formData, setForm, navigation }) => {
-  const { address, city, state, zip } = formData;
+export const College = ({ formData, setForm, navigation }) => {
+  const { year, roll, tech, branch } = formData;
+
   return (
+    <div>
+      <NavBar/>
     <Container maxWidth="xs">
-      <h3>Address</h3>
+      <h3><em>College details</em></h3>
       <TextField
-        label="Address"
-        name="address"
-        value={address}
+        label="Year of Graduation"
+        name="year"
+        value={year}
         onChange={setForm}
         margin="normal"
         variant="outlined"
@@ -19,9 +23,9 @@ export const Address = ({ formData, setForm, navigation }) => {
         fullWidth
       />
       <TextField
-        label="City"
-        name="city"
-        value={city}
+        label="Institute Roll Number"
+        name="roll"
+        value={roll}
         onChange={setForm}
         margin="normal"
         variant="outlined"
@@ -29,9 +33,9 @@ export const Address = ({ formData, setForm, navigation }) => {
         fullWidth
       />
       <TextField
-        label="State"
-        name="state"
-        value={state}
+        label="BTech / MTech / PhD"
+        name="tech"
+        value={tech}
         onChange={setForm}
         margin="normal"
         variant="outlined"
@@ -39,26 +43,26 @@ export const Address = ({ formData, setForm, navigation }) => {
         fullWidth
       />
       <TextField
-        label="Zip"
-        name="zip"
-        type="number"
-        value={zip}
+        label="Branch"
+        name="branch"
+        value={branch}
         onChange={setForm}
         margin="normal"
         variant="outlined"
         autoComplete="off"
         fullWidth
       />
-      <div style={{ marginTop: "1rem" }}>
+      <div style={{ marginTop: "2rem" }}>
         <Button
           color="secondary"
           variant="contained"
-          style={{ marginRight: "1rem" }}
+          style={{  float: "left"  , fontSize: 12 }}
           onClick={() => navigation.previous()}
         >
           Back
         </Button>
         <Button
+          style={{  float: "right"  , fontSize: 12 }}
           color="primary"
           variant="contained"
           onClick={() => navigation.next()}
@@ -67,5 +71,6 @@ export const Address = ({ formData, setForm, navigation }) => {
         </Button>
       </div>
     </Container>
+    </div>
   );
 };
