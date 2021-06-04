@@ -1,12 +1,13 @@
 import React from 'react';
 import { useForm, useStep } from 'react-hooks-helper';
 
-import { Personal } from "./stepForm/Personal";
-import { Contact } from "./stepForm/Contact";
-import { College } from "./stepForm/College";
-import { Professional } from "./stepForm/Professional";
-import { Review } from "./stepForm/Review";
-import { Submit } from "./stepForm/Submit";
+import { Personal } from "./Personal";
+import { Contact } from "./Contact";
+import { College } from "./College";
+import { Professional } from "./Professional";
+import { Review } from "./Review";
+import { Submit } from "./Submit";
+
 
 const defaultData = {
   firstName: "",
@@ -39,7 +40,7 @@ const steps = [
   { id: "submit" },
 ];
 
-const MultiStepForm = () => {
+const Register = () => {
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({
     steps,
@@ -70,4 +71,4 @@ const MultiStepForm = () => {
   );
 };
 
-export default MultiStepForm;
+export default Register;

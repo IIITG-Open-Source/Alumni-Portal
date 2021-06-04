@@ -11,6 +11,8 @@ import ListItemText from '@material-ui/core/ListItemText'
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 
+import NavBar from '../navbar/navbar';
+
 export const Review = ({ formData, navigation }) => {
   const { go } = navigation;
   const {
@@ -35,7 +37,9 @@ export const Review = ({ formData, navigation }) => {
   } = formData;
 
   return (
-    <Container maxWidth='sm'>
+    <div>
+      <NavBar/>
+      <Container maxWidth='sm'>
       <h3><em>Review your details</em></h3>
       <RenderAccordion summary="Personal" go={ go } details={[
         { 'First Name': firstName },
@@ -70,6 +74,7 @@ export const Review = ({ formData, navigation }) => {
       </Button>
 
     </Container>
+    </div>
   );
 };
 

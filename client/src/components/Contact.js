@@ -2,11 +2,14 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import NavBar from '../navbar/navbar';
 
 export const Contact = ({ formData, setForm, navigation }) => {
   const { phone, email, linkedin, github } = formData;
 
   return (
+    <div>
+      <NavBar/>
     <Container maxWidth="xs">
       <h3><em>Contact details</em></h3>
       <TextField
@@ -69,5 +72,6 @@ export const Contact = ({ formData, setForm, navigation }) => {
         </Button>
       </div>
     </Container>
+    </div>
   );
 };
