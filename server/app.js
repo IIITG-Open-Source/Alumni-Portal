@@ -8,7 +8,7 @@ const port = 3000
 
 dotenv.config({path:'./config.env'})
 
-require('./db/conn')
+require('./db/conn') 
 
 //Middleware
 const middleware=(req,res,next)=>{
