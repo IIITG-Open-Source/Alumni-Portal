@@ -7,7 +7,7 @@ const blogPage=()=>{
     <div>
       <NavBar/>
         <div class="header">
-         <h2>write a Post...🖉 </h2>
+         <h2>write a Post..🖉 </h2>
        </div>
        <div class='row'>
         <div class="leftcolumn">
