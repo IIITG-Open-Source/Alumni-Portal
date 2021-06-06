@@ -2,10 +2,33 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+
 import NavBar from '../navbar/navbar';
 
+
+const depts = [
+  {
+    value: 'BTech',
+    label: 'BTech',
+  },
+  {
+    value: 'MTech',
+    label: 'MTech',
+  },
+  {
+    value: 'PhD',
+    label: 'PhD',
+  }
+];
+
+
 export const College = ({ formData, setForm, navigation }) => {
-  const { year, roll, tech, branch } = formData;
+  const { year, roll, branch } = formData;
+  const [dept, setDept] = React.useState('BTech');
+
+  const handleChange = (event) => {
+    setDept(event.target.value);
+  };
 
   return (
     <div>
@@ -32,16 +55,29 @@ export const College = ({ formData, setForm, navigation }) => {
         autoComplete="off"
         fullWidth
       />
+
       <TextField
-        label="BTech / MTech / PhD"
-        name="tech"
-        value={tech}
-        onChange={setForm}
-        margin="normal"
-        variant="outlined"
-        autoComplete="off"
-        fullWidth
-      />
+        label="Department"
+          select
+          name="dept"
+          value={dept}
+          id="dept"
+          margin="normal"
+          variant="outlined"
+          autoComplete="off"
+          fullWidth        
+          onChange={handleChange}
+          SelectProps={{
+            native: true,
+          }}
+        >
+          {depts.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+      </TextField>
+      
       <TextField
         label="Branch"
         name="branch"
@@ -72,5 +108,6 @@ export const College = ({ formData, setForm, navigation }) => {
       </div>
     </Container>
     </div>
+    
   );
 };

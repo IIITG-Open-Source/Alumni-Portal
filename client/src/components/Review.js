@@ -27,7 +27,7 @@ export const Review = ({ formData, navigation }) => {
 
     year,
     roll,
-    tech,
+    revdept,
     branch,
 
     occupation,
@@ -55,7 +55,7 @@ export const Review = ({ formData, navigation }) => {
       <RenderAccordion summary="College" go={ go } details={[
         { 'Year of Graduation': year },
         { 'Institute Roll Number': roll },
-        { 'BTech / MTech / PhD': tech },
+        { 'Department': revdept },
         { 'Branch': branch },
       ]} />
       <RenderAccordion summary="Professional" go={ go } details={[
@@ -64,14 +64,24 @@ export const Review = ({ formData, navigation }) => {
         { 'Position': position },
         { 'Achievements': achievements },
       ]} />
-      <Button
-        color="primary"
-        variant="contained"
-        style={{ marginTop: '2rem', float: "right"  , fontSize: 12 }}
-        onClick={() => go('submit')}
-      >
-        Submit
-      </Button>
+      <div style={{ marginTop: "2rem" }}>
+        <Button
+            color="secondary"
+            variant="contained"
+            style={{ float: "left", fontSize: 12 }}
+            onClick={() => navigation.previous()}
+          >
+            Back
+        </Button>
+        <Button
+          color="primary"
+          variant="contained"
+          style={{ float: "right"  , fontSize: 12 }}
+          onClick={() => go('submit')}
+        >
+          Submit
+        </Button>
+        </div>
 
     </Container>
     </div>

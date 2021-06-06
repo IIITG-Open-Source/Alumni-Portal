@@ -43,14 +43,15 @@ export const Professional = ({ formData, setForm, navigation }) => {
         fullWidth
       />
       <TextField
-        label="Achievements"
-        name="achievements"
-        value={achievements}
-        onChange={setForm}
-        margin="normal"
-        variant="outlined"
-        autoComplete="off"
-        fullWidth
+          label="Achievements"
+          multiline
+          name="achievements"
+          value={achievements}
+          onChange={setForm}
+          margin="normal"
+          variant="outlined"
+          autoComplete="off"
+          fullWidth
       />
       <div style={{ marginTop: "2rem" }}>
         <Button

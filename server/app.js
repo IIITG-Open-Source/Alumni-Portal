@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 const app = express()
 const port = 3000
 
+const Alumni = require('./models/alumniModel')
+
 dotenv.config({path:'./config.env'})
 
 require('./db/conn') 

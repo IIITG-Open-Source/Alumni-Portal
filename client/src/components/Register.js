@@ -21,7 +21,7 @@ const defaultData = {
 
   year: "",
   roll: "",
-  tech: "",
+  dept: "",
   branch: "",
 
   occupation: "",
