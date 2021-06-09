@@ -6,32 +6,36 @@ const mongoose = require('mongoose')
 const app = express()
 const port = 3000
 
-const Student = require('./models/studentModel')
 const Alumni = require('./models/alumniModel')
+
 
 dotenv.config({path:'./config.env'})
 
 require('./db/conn') 
 
 //Middleware
+app.use(express.json())
+app.use(require('./router/auth'));
+
+
 const middleware=(req,res,next)=>{
     console.log(`Hello my middleware`);
     next();
 }
 
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
+//const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // Navigation
 app.get('/', (req, res)=> {
     res.send(`home`);
 })
 
-app.get('/register',middleware, (req, res)=> {
+app.get('/register', (req, res)=> {
     res.send(`register`);
 })
 
-app.post('/register', urlencodedParser, [
+/*app.post('/register', urlencodedParser, [
     check('firstname', 'The firstname must be 3+ characters long')
         .exists()
         .isLength({ min: 3 }),
@@ -50,7 +54,7 @@ app.post('/register', urlencodedParser, [
         //res.render('register', {alert})
     }
 
-})
+})*/
 app.get('/login',(req,res)=>{
     res.send(`Login`)
 })
