@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 import NavBar from '../navbar/navbar';
 
 
-const depts = [
+/* const depts = [
   {
     value: 'BTech',
     label: 'BTech',
@@ -19,16 +19,17 @@ const depts = [
     value: 'PhD',
     label: 'PhD',
   }
-];
+]; */
 
 
 export const College = ({ formData, setForm, navigation }) => {
-  const { year, roll, branch } = formData;
-  const [dept, setDept] = React.useState('BTech');
+  const { year, roll, dept, branch } = formData;
+
+  /* const [dept, setDept] = React.useState('BTech');
 
   const handleChange = (event) => {
     setDept(event.target.value);
-  };
+  }; */
 
   return (
     <div>
@@ -58,6 +59,7 @@ export const College = ({ formData, setForm, navigation }) => {
 
       <TextField
        label="Department"
+       placeholder="BTech / MTech / PhD"
        name="dept"
        value={dept}
        onChange={setForm}
@@ -89,6 +91,7 @@ export const College = ({ formData, setForm, navigation }) => {
       
       <TextField
         label="Branch"
+        placeholder="CSE / ECE / other"
         name="branch"
         value={branch}
         onChange={setForm}
