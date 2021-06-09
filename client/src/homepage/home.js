@@ -1,13 +1,28 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {Link,Redirect} from 'react-router-dom';
 import girlImage from '../images/girl1.jpg';
 import './home.css';
+import axios from 'axios';
 import NavBar from '../navbar/navbar';
 import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome'
 import { faCoffee,faEnvelope,faMailBulk, faSearch } from '@fortawesome/free-solid-svg-icons'
 import {faFacebook,faLinkedin,faTwitter,faInstagram, faMailchimp} from '@fortawesome/free-brands-svg-icons'
 
 const Home=()=>{
+  const [alumniData,setAlumniData]=useState()
+ 
+    useEffect(()=>{
+        getAlumnis();
+    },[]);
+    const getAlumnis=()=>{
+       axios.get('/')
+       .then((response)=>{
+           console.log(response)
+       })
+       .catch((err)=>{
+           console.log(err)
+       })
+    }
     return(
             <div>
                 <NavBar/>
