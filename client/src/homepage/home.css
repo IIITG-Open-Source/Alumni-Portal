@@ -23,3 +23,11 @@
 .dropdown-toggle {
     width: 100%;
 }
+.dropdown-menu{
+    width: 300px !important;
+}
+.dropdown-item{
+    margin-right:5px;
+}
+
+
