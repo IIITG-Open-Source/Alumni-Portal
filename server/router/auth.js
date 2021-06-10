@@ -2,7 +2,7 @@ const express = require('express');
 const router= express.Router();
 require ('../db/conn');
 const Alumni = require('../models/alumniModel')
-router.get('/',(req,res)=>{
+router.get('/api',(req,res)=>{
     //res.send(`Hello world from the server router js`);
     Alumni.find({ })
       .then((data)=>{

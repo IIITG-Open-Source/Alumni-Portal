@@ -6,23 +6,45 @@ import axios from 'axios';
 import NavBar from '../navbar/navbar';
 import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome'
 import { faCoffee,faEnvelope,faMailBulk, faSearch } from '@fortawesome/free-solid-svg-icons'
-import {faFacebook,faLinkedin,faTwitter,faInstagram, faMailchimp} from '@fortawesome/free-brands-svg-icons'
+import {faFacebook,faLinkedin,faTwitter,faInstagram, faMailchimp, faGithub} from '@fortawesome/free-brands-svg-icons'
 
 const Home=()=>{
-  const [alumniData,setAlumniData]=useState()
  
-    useEffect(()=>{
-        getAlumnis();
-    },[]);
-    const getAlumnis=()=>{
-       axios.get('/')
+    const [alumnis,setAlumnis]=useState([])
+ 
+  
+    
+    const getAlumnis=async()=>{
+       /*axios.get('/api')
        .then((response)=>{
-           console.log(response)
+           console.log("DATA")
+           console.log(response.data)
+           setAlumnis(prevAlumni=>([...prevAlumni,...response.data]))
+           console.log("alumni data")
+           console.log(alumnis)
+           
        })
        .catch((err)=>{
            console.log(err)
-       })
+       })*/
+       const response= await fetch('/api');
+       const data=await response.json()
+    
+       console.log(data)
+    
+      
+       setAlumnis(data)
+      
+       console.log(alumnis)
+       
     }
+    useEffect(()=>{
+        getAlumnis();
+    },[]);
+    
+   
+  
+    
     return(
             <div>
                 <NavBar/>
@@ -42,153 +64,59 @@ const Home=()=>{
                             Filter By
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Department
+                            <input type="radio" id="btech" name="gender" value="btech"/>
+                            <label for="btech">B.Tech</label>
+                            <input type="radio" id="mtech" name="gender" value="mtech"/>
+                            <label for="mtech">M.Tech</label>
+                            <input type="radio" id="phd" name="gender" value="phd"/>
+                            <label for="phd">phD</label>
+                            </a>
+                            <a class="dropdown-item" href="#">Passout Year</a>
+                            <a class="dropdown-item" href="#">Branch
+                            <input type="radio" id="cse" name="gender" value="cse"/>
+                            <label for="cse">CSE</label>
+                            <input type="radio" id="ece" name="gender" value="ece"/>
+                            <label for="ece">ECE</label>
+                            </a>
                         </div>
                     </div>
                  </div>
                    
                     <div class='d-flex flex-wrap my-5 justify-content-between'>
-                    <div class="card" >
-                        <img class="card-img img-fluid rounded" src={girlImage} alt="Card image cap"></img>
-                        <div class="card-body ">
-                            <h5 class="card-title">Priyanka Kumari</h5>
-                            <p class="card-text">Working as a developer in DigiZen.</p>
-                            <p class="card-text">priyanka.kumari@iiitg.ac.in</p>
-                            <div class='d-flex flex-row justify-content-between align-items-center'>
-                            
-                            
+                     {
+                         alumnis.map((curitem)=>{
+                             return(
+                                <div class="card" >
+                                <img class="card-img img-fluid rounded" src={girlImage} alt="Card image cap"></img>
+                                <div class="card-body ">
+                                    <h5 class="card-title">{curitem.firstName} {curitem.lastName} | {curitem.dept}-{curitem.year}| {curitem.branch}</h5>
+                                    <p class="card-text">Working as a {curitem.occupation} in {curitem.workingAt}({curitem.location}).</p>
+                                    <p class="card-text">{curitem.email}</p>
+                                    <div class='d-flex flex-row justify-content-between align-items-center'>
+                                    
+                                    <p>{curitem.achievements}</p>
+                                    </div>
+                                    <div class='d-flex flex-row justify-content-start'>
+                                        <a href={curitem.linkedin}>
+                                        <FontAwesomeIcon  icon={faLinkedin}  size="lg"/>
+                                        </a>
+                                    <a href={curitem.github}>
+                                    <FontAwesomeIcon  icon={faGithub} size="lg"  />
+                                    </a>
+                                   
+                                  
+                                    </div>
+                                    
+                                 </div>
+                                 
                             </div>
-                            <div class='d-flex flex-row justify-content-between'>
-                                <a href='#'>
-                                <FontAwesomeIcon  icon={faLinkedin}  size="lg"/>
-                                </a>
-                            <a href='#'>
-                            <FontAwesomeIcon  icon={faFacebook} size="lg"  />
-                            </a>
-                           
-                            <a href='#'>
-                            <FontAwesomeIcon icon={faTwitter}  size="lg"/>
-                            </a>
-                            <a href='#'>
-                            <FontAwesomeIcon icon={faInstagram} size="lg"/>
-                            </a>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="card" >
-                        <img class="card-img img-fluid rounded" src={girlImage} alt="Card image cap"></img>
-                        <div class="card-body ">
-                            <h5 class="card-title">Priyanka Kumari</h5>
-                            <p class="card-text">Working as a developer in DigiZen.</p>
-                            <p class="card-text">priyanka.kumari@iiitg.ac.in</p>
-                            <div class='d-flex flex-row justify-content-between align-items-center'>
-                            
-                            
-                            </div>
-                            <div class='d-flex flex-row justify-content-between'>
-                                <a href='#'>
-                                <FontAwesomeIcon  icon={faLinkedin}  size="lg"/>
-                                </a>
-                            <a href='#'>
-                            <FontAwesomeIcon  icon={faFacebook} size="lg"  />
-                            </a>
-                           
-                            <a href='#'>
-                            <FontAwesomeIcon icon={faTwitter}  size="lg"/>
-                            </a>
-                            <a href='#'>
-                            <FontAwesomeIcon icon={faInstagram} size="lg"/>
-                            </a>
-                            </div>
-                            
-                        </div>
-                    </div>
-                                  <div class="card" >
-                        <img class="card-img img-fluid rounded" src={girlImage} alt="Card image cap"></img>
-                        <div class="card-body ">
-                            <h5 class="card-title">Priyanka Kumari</h5>
-                            <p class="card-text">Working as a developer in DigiZen.</p>
-                            <p class="card-text">priyanka.kumari@iiitg.ac.in</p>
-                            <div class='d-flex flex-row justify-content-between align-items-center'>
-                            
-                            
-                            </div>
-                            <div class='d-flex flex-row justify-content-between'>
-                                <a href='#'>
-                                <FontAwesomeIcon  icon={faLinkedin}  size="lg"/>
-                                </a>
-                            <a href='#'>
-                            <FontAwesomeIcon  icon={faFacebook} size="lg"  />
-                            </a>
-                           
-                            <a href='#'>
-                            <FontAwesomeIcon icon={faTwitter}  size="lg"/>
-                            </a>
-                            <a href='#'>
-                            <FontAwesomeIcon icon={faInstagram} size="lg"/>
-                            </a>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="card" >
-                        <img class="card-img img-fluid rounded" src={girlImage} alt="Card image cap"></img>
-                        <div class="card-body ">
-                            <h5 class="card-title">Priyanka Kumari</h5>
-                            <p class="card-text">Working as a developer in DigiZen.</p>
-                            <p class="card-text">priyanka.kumari@iiitg.ac.in</p>
-                            <div class='d-flex flex-row justify-content-between align-items-center'>
-                            
-                            
-                            </div>
-                            <div class='d-flex flex-row justify-content-between'>
-                                <a href='#'>
-                                <FontAwesomeIcon  icon={faLinkedin}  size="lg"/>
-                                </a>
-                            <a href='#'>
-                            <FontAwesomeIcon  icon={faFacebook} size="lg"  />
-                            </a>
-                           
-                            <a href='#'>
-                            <FontAwesomeIcon icon={faTwitter}  size="lg"/>
-                            </a>
-                            <a href='#'>
-                            <FontAwesomeIcon icon={faInstagram} size="lg"/>
-                            </a>
-                            </div>
-                            
-                        </div>
-                    </div>    <div class="card mt-5" >
-                        <img class="card-img img-fluid rounded" src={girlImage} alt="Card image cap"></img>
-                        <div class="card-body ">
-                            <h5 class="card-title">Priyanka Kumari</h5>
-                            <p class="card-text">Working as a developer in DigiZen.</p>
-                            <p class="card-text">priyanka.kumari@iiitg.ac.in</p>
-                            <div class='d-flex flex-row justify-content-between align-items-center'>
-                            
-                            
-                            </div>
-                            <div class='d-flex flex-row justify-content-between'>
-                                <a href='#'>
-                                <FontAwesomeIcon  icon={faLinkedin}  size="lg"/>
-                                </a>
-                            <a href='#'>
-                            <FontAwesomeIcon  icon={faFacebook} size="lg"  />
-                            </a>
-                           
-                            <a href='#'>
-                            <FontAwesomeIcon icon={faTwitter}  size="lg"/>
-                            </a>
-                            <a href='#'>
-                            <FontAwesomeIcon icon={faInstagram} size="lg"/>
-                            </a>
-                            </div>
-                            
-                        </div>
-                    </div>
+                             )
+                         })
+                     }   
+                
+                                 
+                      
                     </div>
                 </div>
             </div>

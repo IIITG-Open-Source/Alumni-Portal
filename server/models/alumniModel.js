@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcryptjs')
 const Schema = mongoose.Schema;
 
 const alumniSchema = new Schema({
@@ -78,6 +78,26 @@ const alumniSchema = new Schema({
 }, {
   timestamps: true,
 });
+
+
+alumniSchema.pre('save',async function(next){
+     try{
+       console.log('befre saving the user')
+       const salt = await bcrypt.genSalt(10)
+       console.log(this.email, this.password)
+       const hashedPassword = await bcrypt.hash(this.password,salt)
+       console.log(hashedPassword)
+       this.password=hashedPassword
+       console.log(this.password)
+       next()
+
+     }catch(err){
+       console.log(err)
+       next(err)
+     }
+
+})
+
 
 const Alumni = mongoose.model('Alumni', alumniSchema);
 
