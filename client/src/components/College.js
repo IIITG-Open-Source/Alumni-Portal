@@ -57,7 +57,15 @@ export const College = ({ formData, setForm, navigation }) => {
       />
 
       <TextField
-        label="Department"
+       label="Department"
+       name="dept"
+       value={dept}
+       onChange={setForm}
+       margin="normal"
+       variant="outlined"
+       autoComplete="off"
+       fullWidth
+      /*  label="Department"
           select
           name="dept"
           value={dept}
@@ -70,13 +78,14 @@ export const College = ({ formData, setForm, navigation }) => {
           SelectProps={{
             native: true,
           }}
-        >
-          {depts.map((option) => (
+          *</Container>{depts.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
             </option>
           ))}
-      </TextField>
+      </TextField>*/
+        />
+          
       
       <TextField
         label="Branch"

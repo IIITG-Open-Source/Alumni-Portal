@@ -19,6 +19,8 @@ export const Review = ({ formData, navigation }) => {
     firstName,
     lastName,
     residence,
+    password,
+    
 
     phone,
     email,
@@ -27,7 +29,7 @@ export const Review = ({ formData, navigation }) => {
 
     year,
     roll,
-    revdept,
+    dept,
     branch,
 
     occupation,
@@ -35,7 +37,53 @@ export const Review = ({ formData, navigation }) => {
     position,
     achievements
   } = formData;
+  const PostData=async(e)=>{
+    e.preventDefault;
+    console.log(formData)
+   
+    const res= await fetch('/register',{
+      method:'POST',
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        firstName,
+        lastName,
+        residence,
+        password,
+    
+        phone,
+        email,
+        linkedin,
+        github,
+    
+        year,
+        roll,
+        dept,
+        branch,
+    
+        occupation,
+        workingAt,
+        position,
+        achievements
+        
+      })
 
+    }).then((result)=>{
+      console.log(result)
+      result.json().then((resp)=>{
+        console.warn(resp)
+        
+
+      })
+    });
+    /*const data= await res.json();
+    if(data.status=== 422 || !data){
+      window.alert('Invalid registration')
+      console.log('invalid registration')
+    }*/
+
+  }
   return (
     <div>
       <NavBar/>
@@ -45,6 +93,7 @@ export const Review = ({ formData, navigation }) => {
         { 'First Name': firstName },
         { 'Last Name': lastName },
         { 'Residence Country': residence },
+        
       ]} />
       <RenderAccordion summary="Contact" go={ go } details={[
         { 'Phone Number': phone },
@@ -55,7 +104,7 @@ export const Review = ({ formData, navigation }) => {
       <RenderAccordion summary="College" go={ go } details={[
         { 'Year of Graduation': year },
         { 'Institute Roll Number': roll },
-        { 'Department': revdept },
+        { 'Department': dept },
         { 'Branch': branch },
       ]} />
       <RenderAccordion summary="Professional" go={ go } details={[
@@ -77,7 +126,7 @@ export const Review = ({ formData, navigation }) => {
           color="primary"
           variant="contained"
           style={{ float: "right"  , fontSize: 12 }}
-          onClick={() => go('submit')}
+          onClick={PostData}
         >
           Submit
         </Button>

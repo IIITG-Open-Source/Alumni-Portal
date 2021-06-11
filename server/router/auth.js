@@ -1,6 +1,8 @@
 const express = require('express');
 const router= express.Router();
+
 const bcrypt = require('bcryptjs');
+
 require ('../db/conn');
 const Alumni = require('../models/alumniModel')
 router.get('/api',(req,res)=>{
@@ -56,6 +58,7 @@ router.post('/register',(req,res)=>{
     }).catch((err)=>{console.log(err)})
 
 
+
 })
 
 //login route
@@ -93,3 +96,10 @@ router.post('/login',async (req,res)=>{
 
 
 module.exports=router; 
+
+    
+
+   
+})
+module.exports=router;
+
