@@ -1,8 +1,9 @@
 const express = require('express');
 const router= express.Router();
+const bcrypt = require('bcryptjs');
 require ('../db/conn');
 const Alumni = require('../models/alumniModel')
-router.get('/',(req,res)=>{
+router.get('/api',(req,res)=>{
     //res.send(`Hello world from the server router js`);
     Alumni.find({ })
       .then((data)=>{
@@ -68,19 +69,27 @@ router.post('/login',async (req,res)=>{
             return res.status(400).json({error:"Plz fill the credentials properly"})
         }
         const alumniLogin = await Alumni.findOne({email:email});
-        console.log(alumniLogin);
-        if(!alumniLogin){
-            res.status(400).json({error:"Alumni Login error"});
+        //console.log(alumniLogin);
+        
+        if(alumniLogin){
+
+            const isMatch = await bcrypt.compare(password,alumniLogin.password);
+        
+            if(!isMatch){
+                res.json({message: "Alumni error"})
+        
+            }else{
+                res.json({message: "Alumni Signin Successfully"})
+            }
+    
         }else{
-            
-        res.json({message:"Alumni Logged in Successfully"});
- 
+            res.status(400).json({error: "Invalid Credentials"});
         }
    }catch(err){
         console.log(err);
     }
 
-})
+});
 
 
 module.exports=router; 
