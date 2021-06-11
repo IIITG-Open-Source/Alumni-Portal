@@ -3,6 +3,7 @@ import React from 'react';
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import Home from './homepage/home';
 import Register from './components/Register';
+import StudentRegister from './components/StudentRegister';
 import BlogPage from './blog_alumni/blog'
 import Login from './components/Login'
 
@@ -15,6 +16,9 @@ function App() {
          </Route>
          <Route path='/register' exact>
             <Register/>
+         </Route>
+         <Route path='/studentRegister' exact>
+            <StudentRegister/>
          </Route>
          <Route path='/blogs' exact>
            <BlogPage/>
