@@ -16,6 +16,7 @@ require('./db/conn')
 
 //Middleware
 app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 app.use(require('./router/auth'));
 
 
@@ -24,8 +25,8 @@ const middleware=(req,res,next)=>{
     next();
 }
 
-
-//const urlencodedParser = bodyParser.urlencoded({ extended: false })
+ 
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // Navigation
 app.get('/', (req, res)=> {
@@ -36,7 +37,7 @@ app.get('/register', (req, res)=> {
     res.send(`register`);
 })
 
-/*app.post('/register', urlencodedParser, [
+/* app.post('/register', urlencodedParser, [
     check('firstname', 'The firstname must be 3+ characters long')
         .exists()
         .isLength({ min: 3 }),
@@ -49,13 +50,14 @@ app.get('/register', (req, res)=> {
 
     const errors = validationResult(req)
     if(!errors.isEmpty()) {
-        // return res.status(422).jsonp(errors.array())
+        return res.status(422).jsonp(errors.array().pretty())
         //const alert = errors.array()
 
         //res.render('register', {alert})
     }
 
-})*/
+}) */
+
 app.get('/login',(req,res)=>{
     res.send(`Login`)
 })

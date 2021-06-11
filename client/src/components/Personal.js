@@ -37,6 +37,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
           label="First Name"
           style={{ fontSize: 13 }}
           name="firstName"
+          id={firstName}
           value={firstName}
           onChange={setForm}
           margin="normal"
@@ -47,6 +48,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
         <TextField
           label="Last Name"
           name="lastName"
+          id="lastName"
           value={lastName}
           onChange={setForm}
           margin="normal"
@@ -57,6 +59,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
         <TextField
           label="Residence country"
           name="residence"
+          id="residence"
           value={residence}
           onChange={setForm}
           margin="normal"
@@ -79,7 +82,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
           <i onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>{values.showPassword ? <Visibility /> : <VisibilityOff />}</i>{" "}
         </div>
 
-        <Button
+        <Button onclick="return validate()"
           variant="contained"
           color="primary"
           style={{ marginTop: "2rem" , float: "right" , fontSize: 12 }}
