@@ -48,7 +48,7 @@ router.post('/register',(req,res)=>{
             return res.status(422).json({error:"Alumni already registered"})
         }
         const alumni = new Alumni({firstName, lastName, residence, password ,phone, email, linkedin, github,year, roll,dept, branch,occupation, workingAt, position, achievements})
-    alumni.markModified();
+    
     alumni.save().then(()=>{
         res.status(201).json({message:'Alumni registered'})
     }).catch((err)=>res.status(500).json({error:"Failed to register"}));
