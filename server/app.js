@@ -6,7 +6,6 @@ const mongoose = require('mongoose')
 const app = express()
 const port = 3000
 
-const Student = require('./models/studentModel')
 const Alumni = require('./models/alumniModel')
 
 
