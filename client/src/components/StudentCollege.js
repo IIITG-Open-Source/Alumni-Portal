@@ -22,7 +22,7 @@ import NavBar from '../navbar/navbar';
 ]; */
 
 
-export const College = ({ formData, setForm, navigation }) => {
+export const StudentCollege = ({ formData, setForm, navigation }) => {
   const { year, roll, dept, branch } = formData;
 
   /* const [dept, setDept] = React.useState('BTech');

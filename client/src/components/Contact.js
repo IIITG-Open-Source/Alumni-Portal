@@ -14,6 +14,7 @@ export const Contact = ({ formData, setForm, navigation }) => {
       <h3><em>Contact details</em></h3>
       <TextField
         label="Phone number"
+        placeholder="Give the country code as well"
         name="phone"
         value={phone}
         onChange={setForm}

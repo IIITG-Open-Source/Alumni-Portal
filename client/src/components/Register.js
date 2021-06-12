@@ -40,10 +40,7 @@ const steps = [
   { id: "submit" },
 ];
 
-
 const Register = () => {
-
-
 
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({
