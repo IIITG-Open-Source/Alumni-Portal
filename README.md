@@ -1,1 +1,1 @@
-# IIITG-Alumini-Portal
+# Alumini-Portal

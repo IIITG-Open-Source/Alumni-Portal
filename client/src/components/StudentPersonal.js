@@ -8,8 +8,8 @@ import NavBar from '../navbar/navbar';
 
 import "./Personal.css"
 
-export const Personal = ({ formData, setForm, navigation }) => {
-  const { firstName, lastName, residence, password } = formData;
+export const StudentPersonal = ({ formData, setForm, navigation }) => {
+  const { firstName, lastName, email, password } = formData;
 
   const [values, setValues] = React.useState({
     password: "",
@@ -57,15 +57,15 @@ export const Personal = ({ formData, setForm, navigation }) => {
           fullWidth
         />
         <TextField
-          label="Residence country"
-          name="residence"
-          id="residence"
-          value={residence}
-          onChange={setForm}
-          margin="normal"
-          variant="outlined"
-          autoComplete="off"
-          fullWidth
+            label="Email ID"
+            name="email"
+            value={email}
+            type="email"
+            onChange={setForm}
+            margin="normal"
+            variant="outlined"
+            autoComplete="off"
+            fullWidth
         />
         <div className="pass-wrapper">
           {" "}

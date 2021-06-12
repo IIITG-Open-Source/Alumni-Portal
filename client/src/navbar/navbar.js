@@ -34,6 +34,11 @@ const NavBar=()=>{
                 <Link to='/register'>Register</Link>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link"  >
+                <Link to='/studentRegister'>Student-Register</Link>
+              </a>
+            </li>
             
           </ul>
           
