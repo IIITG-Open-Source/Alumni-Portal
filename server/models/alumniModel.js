@@ -72,7 +72,7 @@ const alumniSchema = new Schema({
   },
   achievements: {
     type: String,
-    required: true
+    
   }
   
 }, {

@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 
 require ('../db/conn');
 const Alumni = require('../models/alumniModel')
+const Student = require('../models/studentModel')
 router.get('/api',(req,res)=>{
     //res.send(`Hello world from the server router js`);
     Alumni.find({ })
@@ -61,6 +62,25 @@ router.post('/register',(req,res)=>{
 
 })
 
+router.post('/studentRegister',(req,res)=>{
+    console.log('student');
+    const {firstName,lastName,email,password,year,roll,dept,branch}= req.body;
+    if(!firstName || !lastName || !email || !password || !year || !roll || !dept|| !branch){
+        return res.status(422).json({error:"Field can't be empty"});
+
+    }
+
+    Student.findOne({email:email}).then((studentExist)=>{
+         if(studentExist){
+             return res.status(422).json({error:"Student already registered"});
+         }
+         const student = new Student({firstName,lastName,email,password,year,roll,dept,branch});
+
+         student.save().then(()=>{
+             res.status(201).json({message:'Student successfuly registered'});
+         }).catch((err)=>res.status(500).json({error:'Registraton failed'}))
+    }).catch((err)=>{console.log(err)})
+})
 //login route
 router.post('/login',async (req,res)=>{
     //console.log(req.body);
@@ -95,11 +115,11 @@ router.post('/login',async (req,res)=>{
 });
 
 
-module.exports=router; 
+//module.exports=router; 
 
     
 
    
-})
+//})
 module.exports=router;
 
