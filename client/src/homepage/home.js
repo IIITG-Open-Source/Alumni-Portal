@@ -137,7 +137,7 @@ const Home=()=>{
                                 <img class="card-img img-fluid rounded" src={girlImage} alt="Card image cap"></img>
                                 <div class="card-body ">
                                     <h5 class="card-title">{curitem.firstName} {curitem.lastName} | {curitem.dept}-{curitem.year}| {curitem.branch}</h5>
-                                    <p class="card-text">Working as a {curitem.occupation} in {curitem.workingAt}({curitem.location}).</p>
+                                    <p class="card-text">Working as a {curitem.occupation} in {curitem.workingAt}({curitem.residence}).</p>
                                     <p class="card-text">{curitem.email}</p>
                                     <div class='d-flex flex-row justify-content-between align-items-center'>
                                     

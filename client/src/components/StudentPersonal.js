@@ -44,9 +44,9 @@ export const StudentPersonal = ({ formData, setForm, navigation }) => {
 
   return (
     <div>
-      <NavBar/>
+      
       <Container maxWidth="xs">
-        <h3><em>Create your account</em></h3>
+        <h3><em>Student Register</em></h3>
         <div id='dataInvalid' class='text-danger'>{error}</div>
         <TextField
           label="First Name"

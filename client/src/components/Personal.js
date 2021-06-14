@@ -30,9 +30,9 @@ export const Personal = ({ formData, setForm, navigation }) => {
 
   return (
     <div>
-      <NavBar/>
+     
       <Container maxWidth="xs">
-        <h3><em>Create your account</em></h3>
+        <h3><em>Alumni Register</em></h3>
         <TextField
           label="First Name"
           style={{ fontSize: 13 }}

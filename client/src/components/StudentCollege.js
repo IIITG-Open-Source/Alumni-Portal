@@ -46,7 +46,7 @@ export const StudentCollege = ({ formData, setForm, navigation }) => {
 
   return (
     <div>
-      <NavBar/>
+     
     <Container maxWidth="xs">
       <h3><em>College details</em></h3>
       <div id='dataInvalid' class='text-danger'>{error}</div>

@@ -9,7 +9,7 @@ export const Professional = ({ formData, setForm, navigation }) => {
 
   return (
     <div>
-      <NavBar/>
+      
     <Container maxWidth="xs">
       <h3><em>Professional details</em></h3>
       <TextField
