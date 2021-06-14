@@ -31,6 +31,19 @@ export const College = ({ formData, setForm, navigation }) => {
     setDept(event.target.value);
   }; */
 
+  const [error,setError]=useState("");
+
+  const Validation=()=>{
+    console.log("clicked");
+    const { year, roll, dept, branch } = formData;
+    console.log(formData);
+    if(year==="" || roll==="" || dept==="" || branch===""){
+      setError("**required field is empty");
+    }else{
+      navigation.next()
+    }
+  } 
+
   return (
     <div>
      

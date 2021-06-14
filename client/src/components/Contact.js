@@ -7,11 +7,25 @@ import NavBar from '../navbar/navbar';
 export const Contact = ({ formData, setForm, navigation }) => {
   const { phone, email, linkedin, github } = formData;
 
+  const [error,setError]=useState("");
+
+  const Validation=()=>{
+    console.log("clicked");
+    const { year, roll, dept, branch } = formData;
+    console.log(formData);
+    if(year==="" || roll==="" || dept==="" || branch===""){
+      setError("**required field is empty");
+    }else{
+      navigation.next()
+    }
+  }
+
   return (
     <div>
    
     <Container maxWidth="xs">
       <h3><em>Contact details</em></h3>
+      <div id='dataInvalid' class='text-danger'>{error}</div>
       <TextField
         label="Phone number"
         placeholder="Give the country code as well"
