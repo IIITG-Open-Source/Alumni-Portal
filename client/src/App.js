@@ -6,6 +6,7 @@ import Register from './components/Register';
 import StudentRegister from './components/StudentRegister';
 import BlogPage from './blog_alumni/blog'
 import Login from './components/Login'
+import CommonRegister from './components/commonRegister' 
 
 function App() {
   return (
@@ -15,11 +16,9 @@ function App() {
            <Home/>
          </Route>
          <Route path='/register' exact>
-            <Register/>
+            <CommonRegister/>
          </Route>
-         <Route path='/studentRegister' exact>
-            <StudentRegister/>
-         </Route>
+        
          <Route path='/blogs' exact>
            <BlogPage/>
          </Route>

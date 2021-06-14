@@ -2,7 +2,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import React,{useState} from 'react';
 import {Route,Link} from 'react-router-dom';
 import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome'
-
+import './navbar.css'
 const NavBar=()=>{
     return(
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,11 +34,7 @@ const NavBar=()=>{
                 <Link to='/register'>Register</Link>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link"  >
-                <Link to='/studentRegister'>Student-Register</Link>
-              </a>
-            </li>
+            
             
           </ul>
           

@@ -64,7 +64,7 @@ export const StudentReview = ({ formData, navigation }) => {
   }
   return (
     <div>
-      <NavBar/>
+      
       <Container maxWidth='sm'>
       <h3><em>Review your details</em></h3>
       <RenderAccordion summary="StudentPersonal" go={ go } details={[

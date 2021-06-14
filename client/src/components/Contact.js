@@ -9,7 +9,7 @@ export const Contact = ({ formData, setForm, navigation }) => {
 
   return (
     <div>
-      <NavBar/>
+   
     <Container maxWidth="xs">
       <h3><em>Contact details</em></h3>
       <TextField

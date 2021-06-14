@@ -86,7 +86,7 @@ export const Review = ({ formData, navigation }) => {
   }
   return (
     <div>
-      <NavBar/>
+     
       <Container maxWidth='sm'>
       <h3><em>Review your details</em></h3>
       <RenderAccordion summary="Personal" go={ go } details={[
