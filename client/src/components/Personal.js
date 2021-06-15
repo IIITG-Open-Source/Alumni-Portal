@@ -70,7 +70,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
             label="Password"
             name="password"
             type={values.showPassword ? "text" : "password"}
-            onChange={handlePasswordChange("password")}
+            onChange={setForm}
             margin="normal"
             variant="outlined"
             autoComplete="off"
