@@ -115,6 +115,10 @@ const Login = () => {
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1"/>
 
+                        <label for="exampleInputUser" class="form-label" placeholder="Student or Alumni">Student or Alumni</label>
+                        <input type="text" class="form-control" id="exampleInputUser"/>
+
+                        
                         <button type="submit" class="btn btn-primary">Submit</button>
 
                     </div>
