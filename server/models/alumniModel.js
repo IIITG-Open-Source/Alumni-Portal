@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs')
 const Schema = mongoose.Schema;
+const jwt = require('jsonwebtoken');
 
 const alumniSchema = new Schema({
   
@@ -73,7 +74,15 @@ const alumniSchema = new Schema({
   achievements: {
     type: String,
     required: true
-  }
+  },
+  tokens: [
+    {
+      token:{
+        type: String,
+        required: true 
+      }
+    }
+  ]
   
 }, {
   timestamps: true,
@@ -89,7 +98,7 @@ alumniSchema.pre('save',async function(next){
        console.log(hashedPassword)
        this.password=hashedPassword
        console.log(this.password)
-       next()
+       next();
 
      }catch(err){
        console.log(err)
@@ -98,7 +107,19 @@ alumniSchema.pre('save',async function(next){
 
 })
 
+//generating token
+alumniSchema.methods.generateAuthToken = async function (){
+  try{
 
+    let token = jwt.sign({_id: this._id}, process.env.SECRET_KEY);
+    this.tokens = this.tokens.concat({ token: token});
+    await this.save();
+    return token;
+
+  }catch(err){
+    console.log(err);
+  }
+}
 const Alumni = mongoose.model('Alumni', alumniSchema);
 
 module.exports = Alumni;

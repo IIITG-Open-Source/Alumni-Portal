@@ -1,6 +1,8 @@
 const express = require('express');
 const router= express.Router();
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
 require ('../db/conn');
 const Alumni = require('../models/alumniModel')
 router.get('/api',(req,res)=>{
@@ -63,6 +65,7 @@ router.post('/login',async (req,res)=>{
     //console.log(req.body);
     //res.json({message:"welcm back"});
     try{
+        let token;
         const {email,password}=req.body;
 
         if(!email || !password){ 
@@ -74,7 +77,16 @@ router.post('/login',async (req,res)=>{
         if(alumniLogin){
 
             const isMatch = await bcrypt.compare(password,alumniLogin.password);
-        
+            //jwt part
+    
+            token = await alumniLogin.generateAuthToken();
+            console.log(token);
+
+            res.cookie("jwtoken", token, {
+                expires: new Date(Date.now()+ 25892000000),
+                httpOnly: true
+            });
+
             if(!isMatch){
                 res.json({message: "Alumni error"})
         
