@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -32,9 +32,9 @@ export const Personal = ({ formData, setForm, navigation }) => {
 
   const Validation=()=>{
     console.log("clicked");
-    const { year, roll, dept, branch } = formData;
+    const { firstName, lastName, residence, password } = formData;
     console.log(formData);
-    if(year==="" || roll==="" || dept==="" || branch===""){
+    if(firstName==="" || lastName==="" || residence==="" || password===""){
       setError("**required field is empty");
     }else{
       navigation.next()
@@ -58,6 +58,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
           variant="outlined"
           autoComplete="off"
           fullWidth
+          required
         />
         <TextField
           label="Last Name"
@@ -69,6 +70,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
           variant="outlined"
           autoComplete="off"
           fullWidth
+          required
         />
         <TextField
           label="Residence country"
@@ -80,6 +82,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
           variant="outlined"
           autoComplete="off"
           fullWidth
+          required
         />
         <div className="pass-wrapper">
           {" "}
@@ -92,6 +95,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
             variant="outlined"
             autoComplete="off"
             fullWidth
+            required
           />
           <i onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>{values.showPassword ? <Visibility /> : <VisibilityOff />}</i>{" "}
         </div>
@@ -100,7 +104,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
           variant="contained"
           color="primary"
           style={{ marginTop: "2rem" , float: "right" , fontSize: 12 }}
-          onClick={() => navigation.next()}
+          onClick={Validation}
         >
           Next
         </Button>

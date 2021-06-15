@@ -40,7 +40,12 @@ export const StudentCollege = ({ formData, setForm, navigation }) => {
     if(year==="" || roll==="" || dept==="" || branch===""){
       setError("**required field is empty");
     }else{
-      navigation.next()
+      if(!(/^\d{4}$/).test(year))
+        setError("**enter correct YEAR of graduation");
+      else if(!(/^\d{7}$/).test(roll))
+        setError("**enter correct ROLL");
+      else
+        navigation.next()
     }
   } 
 
