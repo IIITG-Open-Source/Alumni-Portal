@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -31,11 +31,25 @@ export const StudentCollege = ({ formData, setForm, navigation }) => {
     setDept(event.target.value);
   }; */
 
+  const [error,setError]=useState("");
+
+  const Validation=()=>{
+    console.log("clicked");
+    const { year, roll, dept, branch } = formData;
+    console.log(formData);
+    if(year==="" || roll==="" || dept==="" || branch===""){
+      setError("**required field is empty");
+    }else{
+      navigation.next()
+    }
+  } 
+
   return (
     <div>
      
     <Container maxWidth="xs">
       <h3><em>College details</em></h3>
+      <div id='dataInvalid' class='text-danger'>{error}</div>
       <TextField
         label="Year of Graduation"
         name="year"
@@ -45,6 +59,7 @@ export const StudentCollege = ({ formData, setForm, navigation }) => {
         variant="outlined"
         autoComplete="off"
         fullWidth
+        required
       />
       <TextField
         label="Institute Roll Number"
@@ -55,6 +70,7 @@ export const StudentCollege = ({ formData, setForm, navigation }) => {
         variant="outlined"
         autoComplete="off"
         fullWidth
+        required
       />
 
       <TextField
@@ -67,6 +83,7 @@ export const StudentCollege = ({ formData, setForm, navigation }) => {
        variant="outlined"
        autoComplete="off"
        fullWidth
+       required
       /*  label="Department"
           select
           name="dept"
@@ -99,6 +116,7 @@ export const StudentCollege = ({ formData, setForm, navigation }) => {
         variant="outlined"
         autoComplete="off"
         fullWidth
+        required
       />
       <div style={{ marginTop: "2rem" }}>
         <Button
@@ -113,7 +131,7 @@ export const StudentCollege = ({ formData, setForm, navigation }) => {
           style={{  float: "right"  , fontSize: 12 }}
           color="primary"
           variant="contained"
-          onClick={() => navigation.next()}
+          onClick={Validation}
         >
           Next
         </Button>
