@@ -75,12 +75,39 @@ import React, { useState } from 'react';
 import NavBar from '../navbar/navbar';
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-
+import {useHistory} from "react-router-dom";
 const Login = () => {
 
+    const history = useHistory();
     const adminUser = {
         email: "admin@admin.com",
         password: "admin123"
+    }
+
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword]  = useState('');
+
+    const loginUser = async (e) => {
+        e.preventDefault();
+        const res = await fetch('/login',{
+            method:"POST",
+            header:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        });
+        const data = res.json();
+        if(!data){
+            window.alert("Invalid Credentials");
+        }
+        else{
+            window.alert("successfull login");
+            history.push("/");
+        }
     }
 
     const [user, setUser] = useState({name:"",email:""});
@@ -106,16 +133,23 @@ const Login = () => {
                 </div>
             ) : (
                 
-                <form>
+                <form method = "POST" >
                     <div class="form-body">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        value = {email}
+                        onChange = {(e) => setEmail(e.target.value)}
+
+                        />
                         <div id="emailHelp" class="form-text"><small>We'll never share your email with anyone else.</small></div><br/>
                         
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1"/>
+                        <input type="password" class="form-control" id="exampleInputPassword1"
+                        value = {password}
+                        onChange = {(e) => setPassword(e.target.value)}
+                        />
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" onClick={loginUser} >Submit</button>
                         
 
                     </div>
