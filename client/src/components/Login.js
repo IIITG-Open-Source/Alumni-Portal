@@ -89,25 +89,43 @@ const Login = () => {
     const [password, setPassword]  = useState('');
 
     const loginUser = async (e) => {
+        console.log(email,password)
         e.preventDefault();
         const res = await fetch('/login',{
             method:"POST",
-            header:{
+            headers:{
                 "Content-Type":"application/json"
             },
             body: JSON.stringify({
-                email,
-                password
+                email:email,
+                password:password
             })
-        });
-        const data = res.json();
+        }).then((result)=>{
+            console.log(result)
+           
+            result.json().then((resp)=>{
+                console.log(resp)
+             if(result.status==400){
+                 window.alert(resp.message)
+                 console.log('hello')
+             }else{
+                 window.alert(resp.message)
+                 console.log('hi')
+                 history.push('/')
+                
+             }
+      
+            })
+          });
+      /*  const data = res.json();
+        console.log(data)
         if(!data){
             window.alert("Invalid Credentials");
         }
         else{
             window.alert("successfull login");
             history.push("/");
-        }
+        }*/
     }
 
     const [user, setUser] = useState({name:"",email:""});

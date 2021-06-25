@@ -10,7 +10,7 @@ router.get('/api',(req,res)=>{
     //res.send(`Hello world from the server router js`);
     Alumni.find({ })
       .then((data)=>{
-          console.log(data);
+        
           res.json(data);
       })
       .catch((err)=>{
@@ -85,8 +85,10 @@ router.post('/studentRegister',(req,res)=>{
 router.post('/login',async (req,res)=>{
     //console.log(req.body);
     //res.json({message:"welcm back"});
+    console.log('login')
     try{
         const {email,password}=req.body;
+        console.log(req.body);
 
         if(!email || !password){ 
             return res.status(400).json({error:"Plz fill the credentials properly"})
@@ -99,10 +101,10 @@ router.post('/login',async (req,res)=>{
             const isMatch = await bcrypt.compare(password,alumniLogin.password);
         
             if(!isMatch){
-                res.json({message: "Alumni error"})
+                res.status(400).json({message: "Email or password is wrong.Check again"})
         
             }else{
-                res.json({message: "Alumni Signin Successfully"})
+                res.status(200).json({message: "Alumni Signin"})
             }
     
         }else{
