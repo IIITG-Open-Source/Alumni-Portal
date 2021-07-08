@@ -1,14 +1,15 @@
 import React,{useState,useEffect} from 'react';
 import {Link,Redirect} from 'react-router-dom';
 import girlImage from '../images/girl1.jpg';
-import './home.css';
+import './alumniPage.css';
 import axios from 'axios';
 import NavBar from '../navbar/navbar';
+import Footer from '../footer/footer'
 import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome'
 import { faCoffee,faEnvelope,faMailBulk, faSearch } from '@fortawesome/free-solid-svg-icons'
 import {faFacebook,faLinkedin,faTwitter,faInstagram, faMailchimp, faGithub} from '@fortawesome/free-brands-svg-icons'
 
-const Home=()=>{
+const AlumniPage=()=>{
  
     const [alumnis,setAlumnis]=useState([])
     const [searchTerm,setSearchTerm]=useState("")
@@ -165,8 +166,9 @@ const Home=()=>{
                       
                     </div>
                 </div>
+                <Footer/>
             </div>
     );
 }
 
-export default Home;
+export default AlumniPage;

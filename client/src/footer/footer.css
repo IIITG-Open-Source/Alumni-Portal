@@ -1,0 +1,14 @@
+.footerName{
+    background-color: #003366;
+    color:#A7D1FB;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+   
+    position:relative;
+    width:100% !important
+}
+.footerName p{
+    padding-top: 10px !important;
+}
