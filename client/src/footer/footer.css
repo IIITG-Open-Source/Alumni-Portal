@@ -7,7 +7,9 @@
     align-items: center;
    
     position:relative;
-    width:100% !important
+    width:100% !important;
+    margin-top: 1rem;
+    padding: 1rem;
 }
 .footerName p{
     padding-top: 10px !important;
