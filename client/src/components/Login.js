@@ -75,7 +75,7 @@ import React, { useState } from 'react';
 import NavBar from '../navbar/navbar';
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-
+import { Navbar,NavDropdown,FormControl,Nav,Form,Card } from 'react-bootstrap';
 const Login = () => {
 
     const adminUser = {
@@ -95,10 +95,12 @@ const Login = () => {
     }
 
     return (
-        <div className="Login">
+        <div >
+               <div className="Login">
             <NavBar/>
-            <Container maxWidth="xs">
-                <h2><em>Login</em></h2><br/>
+            <Container maxWidth="xs" className='pt-5'>
+                <Card>
+                <h2 className='fw-bold'>Login</h2><br/>
             {(user.email != "") ? (
                 <div className="welcome">
                     <h2>welcome <span>{user.name}</span></h2>
@@ -115,7 +117,9 @@ const Login = () => {
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1"/>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div style={{'width':'100%'}}>
+                        <button type="submit" class="btn mt-4 text-center col-lg-12" style={{'background-color':'#F4AF1B','font-weight':'550'}}>Submit</button>
+                        </div>
                         
 
                     </div>
@@ -124,7 +128,9 @@ const Login = () => {
                 
             )
             }
-        </Container>
+                </Card>
+           </Container>
+        </div>
         </div>
     )
 }

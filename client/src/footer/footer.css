@@ -5,9 +5,13 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    bottom: 0 !important;
-    position:fixed;
-    width:100% !important
+
+   
+    position:relative;
+    width:100% !important;
+    margin-top: 1rem;
+    padding: 1rem;
+
 }
 .footerName p{
     padding-top: 10px !important;
