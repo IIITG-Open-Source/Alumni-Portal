@@ -22,6 +22,15 @@
     border:none !important;
     outline: none !important;
 }
+.navbar{
+    justify-content: space-around !important;
+}
+.navbar-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .color-nav{
     background-color:white !important;
     padding:10px 40px;
