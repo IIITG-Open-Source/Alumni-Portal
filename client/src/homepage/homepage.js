@@ -3,19 +3,21 @@ import Navbar from '../navbar/navbar'
 import Footer from '../footer/footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faUserFriends, faBriefcase } from '@fortawesome/free-solid-svg-icons'
-import { Card,CardGroup } from 'react-bootstrap';
+import { Card,CardGroup ,Container} from 'react-bootstrap';
 import './homepage.css'
 // import { IconName } from "react-icons/fa";
 
 const Home=()=>{
     return(
         
-        <div class='ContainerHolder' >
-            <Navbar/>
-
+        <div  >
+           
+            hello
       
-            <div class="alumni">
-                <img   height={530} width={1536} />
+           {/*} 
+            <Navbar/>
+           <div class="alumni">
+                <img   height={530} width={'100%'} />
 
                 <div className='new-line'  width={300}>
                      <h1 class="Alumni_heading1"> Alumni @ IIITG</h1>
@@ -27,10 +29,10 @@ const Home=()=>{
                      
                      
                 </div> 
-            </div>      
+    </div> */}     
       
       
-            <div class="down-part">
+           {/* <div class="down-part">
 
                 <div class="stay-connected">
                     Let’s stay connected IIITG
@@ -44,49 +46,54 @@ const Home=()=>{
                     guiding current students. The IIITG website supports the alumni network. <br></br><br></br>
                     All a student needs to do is create an account and you can start connecting with our Alumni.
 
-                    <h3 class="join-network">Join alumni network</h3>
+                    <p class="join-network">Join alumni network</p>
                 </div>
                 
             </div>
 
 
-            <CardGroup>
+            <Container >
+                    <CardGroup class='py-5 my-5 d-flex'>
 
-                <Card className="text-center" style={{width:"80%", height:"60%"}}>
-                    <Card.Body>
-                        <div class='searchIcon'>
-                            <FontAwesomeIcon icon={faSearch} size="4x"/>
-                        </div>
-                    </Card.Body>
-                    {/* <Card.Title style={{color:"#F4AF1B"}}> Search Alumni </Card.Title> */}
-                    <Card.Header style={{color:"#F4AF1B"}}> <strong> Search Alumni </strong> </Card.Header>
-                </Card>
+                        <Card className="text-center" style={{width:"60%", height:"60%", marginLeft:"40px"}}>
+                            <Card.Body>
+                                <div class='searchIcon'>
+                                    <FontAwesomeIcon icon={faSearch} size="4x"/>
+                                </div>
+                            </Card.Body>
+                            
+                            <Card.Header style={{color:"#F4AF1B"}}> <strong> Search Alumni </strong> </Card.Header>
+                        </Card>
 
-                <Card className="text-center" style={{width:"80%", height:"60%"}}>
-                    <Card.Body>
-                        <div class='searchIcon'>
-                            <FontAwesomeIcon icon={faUserFriends} size="4x"/>
-                        </div>
-                    </Card.Body>
-                    <Card.Header style={{color:"#F4AF1B"}}> <strong> Join Alumni Network </strong> </Card.Header>
-                </Card>
+                        <Card className="text-center" style={{width:"60%", height:"60%", marginLeft:"40px"}}>
+                            <Card.Body>
+                                <div class='searchIcon'>
+                                    <FontAwesomeIcon icon={faUserFriends} size="4x"/>
+                                </div>
+                            </Card.Body>
+                            <Card.Header style={{color:"#F4AF1B"}}> <strong> Join Alumni Network </strong> </Card.Header>
+                        </Card>
 
-                <Card className="text-center" style={{width:"80%", height:"60%"}}>
-                    <Card.Body>
-                        <div class='searchIcon'>
-                            <FontAwesomeIcon icon={faBriefcase} size="4x"/>
-                        </div>
-                    </Card.Body>
-                    <Card.Header style={{color:"#F4AF1B"}}> <strong> Find/Post a Job </strong> </Card.Header>
-                </Card>
+                        <Card className="text-center" style={{width:"60%", height:"60%" , marginLeft:"40px"}}>
+                            <Card.Body>
+                                <div class='searchIcon'>
+                                    <FontAwesomeIcon icon={faBriefcase} size="4x"/>
+                                </div>
+                            </Card.Body>
+                            <Card.Header style={{color:"#F4AF1B"}}> <strong> Find/Post a Job </strong> </Card.Header>
+                        </Card>
 
-            </CardGroup>
+                        </CardGroup>
+            </Container>
+
+             <Footer/>
+        */}
           
             
 
 
 
-           <Footer/>
+          
         </div>
     )
 }

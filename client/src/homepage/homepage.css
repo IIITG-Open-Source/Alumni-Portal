@@ -16,7 +16,7 @@
 
 .stay-connected {
     position: relative;
-    width: 640px;
+    
     height: 122px;
     left: 67px;
     font-family: Montserrat;
@@ -25,34 +25,35 @@
     font-size: 34px;
     line-height: 41px;
     color: #F4AF1B;
+
 }
 
 .right {
     position: absolute;
-    width: 762px;
+    
     height: 311px;
     left: 607px;
     top: 50px;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 29px;
     color: white;
+    padding:10px;
 }
 
 .join-network {
-	width:50%;
+	width:30%;
     color:white;
-    padding:20px 20px;
+    padding:10px 10px;
     border: 1px solid rgba(167, 209, 251, 1);
     font-weight:bold;
 	text-align:center;
 	margin-top:80px;
 }
 
-    height:700%;
-}
+ 
 #my-canvas { border:  solid rgb(224, 210, 76); }
 .new-line {
     white-space: pre-line;
