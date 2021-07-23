@@ -12,33 +12,33 @@ const Home=()=>{
         
         <div  >
            
-            hello
+            
       
-           {/*} 
+           
             <Navbar/>
            <div class="alumni">
                 <img   height={530} width={'100%'} />
 
-                <div className='new-line'  width={300}>
+                <div className='new-line' >
                      <h1 class="Alumni_heading1"> Alumni @ IIITG</h1>
                      <h2  class="Alumni_heading2">{"\n"}Welcome! Explore the many{"\n"}
                      ways to connect with the college{"\n"}
                      and our 23,000 alumni.{"\n"}
-                     <canvas id="my-canvas" width="400" height="2" ></canvas>
+                     <canvas id="my-canvas" width="100%" height="0.5" ></canvas>
                      </h2>
                      
                      
                 </div> 
-    </div> */}     
+    </div>      
+    
       
-      
-           {/* <div class="down-part">
+         <div class=" down-part">
 
-                <div class="stay-connected">
+                <div class='col-lg-5 col-md-12 col-sm-12 col-xs-12 stay-connected' >
                     Let’s stay connected IIITG
                 </div>
 
-                <div class="right">
+                <div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 right' >
 
                     IIITG has a strong, lively alumni association that extends across the globe. 
                     This thriving alumni network brings great value to everyone associated with IIITG 
@@ -50,12 +50,13 @@ const Home=()=>{
                 </div>
                 
             </div>
-
+         
+            
 
             <Container >
-                    <CardGroup class='py-5 my-5 d-flex'>
+                    <CardGroup class='py-5 my-5 cardsgroup '>
 
-                        <Card className="text-center" style={{width:"60%", height:"60%", marginLeft:"40px"}}>
+                        <Card className="text-center cards" style={{marginLeft:"2%"}}>
                             <Card.Body>
                                 <div class='searchIcon'>
                                     <FontAwesomeIcon icon={faSearch} size="4x"/>
@@ -65,7 +66,7 @@ const Home=()=>{
                             <Card.Header style={{color:"#F4AF1B"}}> <strong> Search Alumni </strong> </Card.Header>
                         </Card>
 
-                        <Card className="text-center" style={{width:"60%", height:"60%", marginLeft:"40px"}}>
+                        <Card className="text-center cards " style={{ marginLeft:"2%"}}>
                             <Card.Body>
                                 <div class='searchIcon'>
                                     <FontAwesomeIcon icon={faUserFriends} size="4x"/>
@@ -74,7 +75,7 @@ const Home=()=>{
                             <Card.Header style={{color:"#F4AF1B"}}> <strong> Join Alumni Network </strong> </Card.Header>
                         </Card>
 
-                        <Card className="text-center" style={{width:"60%", height:"60%" , marginLeft:"40px"}}>
+                        <Card className="text-center cards " style={{marginLeft:"2%"}}>
                             <Card.Body>
                                 <div class='searchIcon'>
                                     <FontAwesomeIcon icon={faBriefcase} size="4x"/>
@@ -87,7 +88,7 @@ const Home=()=>{
             </Container>
 
              <Footer/>
-        */}
+        
           
             
 
