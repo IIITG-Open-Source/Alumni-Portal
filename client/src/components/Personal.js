@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import NavBar from '../navbar/navbar';
-
+import {Card } from 'react-bootstrap';
 import "./Personal.css"
 
 export const Personal = ({ formData, setForm, navigation }) => {
@@ -42,14 +42,15 @@ export const Personal = ({ formData, setForm, navigation }) => {
   } 
 
   return (
-    <div>
+    <div className='pb-5 '>
      
-      <Container maxWidth="xs">
-        <h3><em>Alumni Register</em></h3>
+      <Container maxWidth="xs" className='pb-5'>
+       <Card>
+       <h3 style={{'font-weight':'550'}}>Alumni Register</h3>
         <div id='dataInvalid' class='text-danger'>{error}</div>
-        <TextField
-          label="First Name"
-          style={{ fontSize: 13 }}
+        <input
+          placeholder="First Name"
+          
           name="firstName"
           id={firstName}
           value={firstName}
@@ -58,7 +59,12 @@ export const Personal = ({ formData, setForm, navigation }) => {
           variant="outlined"
           autoComplete="off"
           fullWidth
+
           required
+
+          class='form-control'
+          style={{'padding':'20px','fontSize':'12px !important'}}
+
         />
         <TextField
           label="Last Name"
@@ -108,6 +114,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
         >
           Next
         </Button>
+       </Card>
       </Container>
     </div>
   );

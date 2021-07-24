@@ -54,7 +54,7 @@ export const Contact = ({ formData, setForm, navigation }) => {
         type="email"
         onChange={setForm}
         margin="normal"
-        variant="outlined"
+        variant="outlined"    
         autoComplete="off"
         fullWidth
         required

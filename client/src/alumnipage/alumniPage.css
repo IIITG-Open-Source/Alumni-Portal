@@ -1,0 +1,100 @@
+.card{
+    width:25rem !important;
+    border-radius: 10px !important;
+    box-shadow: 8px 6px 9px -2px rgba(16,14,14,0.65);
+    -webkit-box-shadow: 8px 6px 9px -2px rgba(16,14,14,0.65);
+    -moz-box-shadow: 8px 6px 9px -2px rgba(16,14,14,0.65);
+}
+.card-img{
+    padding:10px !important;
+    
+}
+
+.searchItem{
+    margin:10px;
+  
+    outline: none !important;
+}
+
+.topFilter{
+    display: flex;
+    justify-content:space-evenly !important;
+    align-items: center;
+}
+.searchIcon{
+    
+    margin-left:-40px;
+    display: flex;
+    align-items: center !important;
+    color:rgb(148, 147, 147);
+}
+.full-width{
+    width:40% !important
+}
+.dropdown-toggle {
+    width: 100%;
+    color: black !important;
+    background-color: transparent !important;
+    border: none !important;
+    font-size: 14px !important;
+    outline: none !important;
+}
+.dropdown-menu{
+    width: 300px !important;
+}
+.dropdown-item{
+    margin-right:5px;
+}
+.alumniHolder{
+    background-color:#fff;
+    display:flex;
+    flex-wrap:wrap !important;
+    padding:20px;
+    justify-content: flex-start;
+    align-items: center !important;
+    margin-top:20px !important;
+    
+}
+.alumniCard{
+  
+    margin-right:5% ;
+    margin-left:5% ;
+}
+.work{
+    margin-top:-10px !important;
+}
+@media (max-width:400px){
+    .workDet{
+        width:60%!important;
+       
+    }
+    .alumniCard{
+        padding:0 !important;
+        margin-left:0 !important;
+        margin-right: 0 !important;
+        
+    }
+}
+@media (max-width:1000px){
+    .topFilter{
+        display: flex !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .full-width{
+        width:90% !important;
+    }
+   .alumniCard{
+       width:100% !important    ;
+       margin-left:0 !important;
+        margin-right: 0 !important;
+   }
+   .alumniHolder{
+       justify-content: center !important;
+   }
+   .alumniDet{
+       justify-content: center !important;
+   }
+}
+

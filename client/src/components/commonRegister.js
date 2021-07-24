@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Register  from './Register';
 import StudentRegister from "./StudentRegister";
 import NavBar from '../navbar/navbar';
+import Footer from '../footer/footer'
 const CommonRegister=()=>{
 
     const[form,setForm]=useState('');
@@ -14,21 +15,23 @@ const CommonRegister=()=>{
         chooseForm=<div><Register/></div>
     }
    return(
-       <div>
+       <div className='pb-5'>
        <div>
             <NavBar/>
        </div>
-       <div class='container text-center py-3 my-3'>
+       <div >
+       <h2 className='px-5 fw-bold pt-4'>Register</h2>
+       <div class='container text-center  my-3'>
           
-           <h2>Register</h2>
+          
            <div class='d-flex flex-row justify-content-center align-items-center'>
                 <div class='mr-5'>
                         <input onClick={()=>setForm('student')} type='radio' name='userType' value='student'></input>
-                        <label for='student'>Student</label>
+                        <label className='ml-2' for='student' style={{'color':'#003366','font-weight':'bold'}}>Student</label>
                 </div>
                 <div>
                         <input onClick={()=>setForm('Alumni')} type='radio' name='userType' value='alumni'></input>
-                        <label for='alumni'>Alumni</label>
+                        <label className='ml-2' for='alumni' style={{'color':'#003366','font-weight':'bold'}}>Alumni</label>
                 </div>
            </div>
            <div>
@@ -36,6 +39,8 @@ const CommonRegister=()=>{
            </div>
            
        </div>
+       </div>
+         <Footer/>
        </div>
    );
 }

@@ -1,14 +1,15 @@
 import React,{useState,useEffect} from 'react';
 import {Link,Redirect} from 'react-router-dom';
 import girlImage from '../images/girl1.jpg';
-import './home.css';
+import './alumniPage.css';
 import axios from 'axios';
 import NavBar from '../navbar/navbar';
+import Footer from '../footer/footer'
 import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome'
 import { faCoffee,faEnvelope,faMailBulk, faSearch } from '@fortawesome/free-solid-svg-icons'
 import {faFacebook,faLinkedin,faTwitter,faInstagram, faMailchimp, faGithub} from '@fortawesome/free-brands-svg-icons'
-
-const Home=()=>{
+import {InputGroup,FormControl,Dropdown,DropdownButton} from 'react-bootstrap'
+const AlumniPage=()=>{
  
     const [alumnis,setAlumnis]=useState([])
     const [searchTerm,setSearchTerm]=useState("")
@@ -78,14 +79,15 @@ const Home=()=>{
     
     
     return(
-            <div>
+            <div >
                 <NavBar/>
-                 <h1 class='text-center'>IIITG Alumni</h1>
+
                  
-                <div class='container py-5 my-5'>
-                <div class='flex-row d-flex justify-content-center align-items-center'>
-                    <div class='searchItem d-flex flex-row align-items-center'>
-                        <input class='form-control' 
+                <div class='container py-5 ' >
+                <div class=' topFilter'>
+             
+                    <div class='d-flex flex-row align-items-center full-width'>
+                        <input class='form-control searchItem ' 
                         placeholder='search..' 
                         type='text'
                         onChange={event=>{
@@ -97,7 +99,29 @@ const Home=()=>{
                         </div>
                           
                     </div>
-                    <div class="dropdown searchItem">
+
+                    <div>
+                        <DropdownButton id="dropdown-basic-button" class='customDropdown' title="Course">
+                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        </DropdownButton>
+                    </div>
+                    <div>
+                        <DropdownButton id="dropdown-basic-button" title="Branch">
+                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        </DropdownButton>
+                    </div>
+                    <div>
+                        <DropdownButton id="dropdown-basic-button" title="Graduation Year">
+                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        </DropdownButton>
+                    </div>
+                    {/*<div class="dropdown searchItem">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filter By
                         </button>
@@ -119,10 +143,10 @@ const Home=()=>{
                              </a>
                              
                         </div>
-                    </div>
+                    </div>*/}
                  </div>
                    
-                    <div class='d-flex flex-wrap my-5 justify-content-between'>
+                    <div class='alumniHolder'>
                      {
                          alumnis.filter((val)=>{
                              if(searchTerm===""){
@@ -133,30 +157,23 @@ const Home=()=>{
                              }
                          }).map((curitem)=>{
                              return(
-                                <div class="card" >
-                                <img class="card-img img-fluid rounded" src={girlImage} alt="Card image cap"></img>
-                                <div class="card-body ">
-                                    <h5 class="card-title">{curitem.firstName} {curitem.lastName} | {curitem.dept}-{curitem.year}| {curitem.branch}</h5>
-                                    <p class="card-text">Working as a {curitem.occupation} in {curitem.workingAt}({curitem.residence}).</p>
-                                    <p class="card-text">{curitem.email}</p>
-                                    <div class='d-flex flex-row justify-content-between align-items-center'>
-                                    
-                                    <p>{curitem.achievements}</p>
-                                    </div>
-                                    <div class='d-flex flex-row justify-content-start'>
-                                        <a href={curitem.linkedin}>
-                                        <FontAwesomeIcon  icon={faLinkedin}  size="lg"/>
-                                        </a>
-                                    <a href={curitem.github}>
-                                    <FontAwesomeIcon  icon={faGithub} size="lg"  />
-                                    </a>
-                                   
-                                  
-                                    </div>
-                                    
-                                 </div>
-                                 
-                            </div>
+                               <div class='alumniCard' style={{'width':'40%'}}>
+                                   <div class='d-flex flex-row justify-content-start align-items-center mb-4 alumniDet' >
+                                   <img src={girlImage} style={{'width':'60px','height':'60px','borderRadius':'50%','objectFit':'cover'}}></img>
+                                   <div class='d-flex flex-column justify-content-start ml-4' >
+                                      <div class='d-flex flex-row justify-content-between align-items-center ' >
+                                        <p style={{'font-size':'14px','fontWeight':'550'}}> {curitem.firstName} {curitem.lastName} </p>
+                                        <p style={{'color':'grey','font-size':'10px','marginLeft':'8px','fontWeight':'550'}}>{curitem.dept}-{curitem.year} | {curitem.branch}</p>
+                                      </div>
+                                      <div class='work'>
+                                         <p class='workDet' style={{'font-size':'12px','fontWeight':'550','color':'grey','width':'300px','overflow':'elipsis'}}>
+                                             {curitem.occupation} at {curitem.workingAt},{curitem.residence} 
+                                        </p>
+                                      </div>
+                                   </div>
+                                   </div>
+                               </div>
+                            
                              )
                          })
                      }   
@@ -165,8 +182,9 @@ const Home=()=>{
                       
                     </div>
                 </div>
+                <Footer/>
             </div>
     );
 }
 
-export default Home;
+export default AlumniPage;
