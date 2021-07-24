@@ -11,12 +11,21 @@ export const Contact = ({ formData, setForm, navigation }) => {
 
   const Validation=()=>{
     console.log("clicked");
-    const { year, roll, dept, branch } = formData;
+    const { phone, email, linkedin, github } = formData;
     console.log(formData);
-    if(year==="" || roll==="" || dept==="" || branch===""){
+    if(phone==="" || email==="" || linkedin==="" || github===""){
       setError("**required field is empty");
-    }else{
-      navigation.next()
+    } else {
+      if(!phone.includes("+")) {
+        setError("**enter country code in phone number")
+      }
+      else if(!(/^\+[0-9]+$/).test(phone))
+        setError("**enter correct phone no.");
+      else if(!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)))
+        setError("**enter correct email");
+      else{
+        navigation.next()
+      }
     }
   }
 
@@ -36,6 +45,7 @@ export const Contact = ({ formData, setForm, navigation }) => {
         variant="outlined"
         autoComplete="off"
         fullWidth
+        required
       />
       <TextField
         label="Email ID"
@@ -47,6 +57,7 @@ export const Contact = ({ formData, setForm, navigation }) => {
         variant="outlined"    
         autoComplete="off"
         fullWidth
+        required
       />
       <TextField
         label="LinkedIn"
@@ -57,6 +68,7 @@ export const Contact = ({ formData, setForm, navigation }) => {
         variant="outlined"
         autoComplete="off"
         fullWidth
+        required
       />
       <TextField
         label="GitHub"
@@ -67,6 +79,7 @@ export const Contact = ({ formData, setForm, navigation }) => {
         variant="outlined"
         autoComplete="off"
         fullWidth
+        required
       />
       <div style={{ marginTop: "2rem" }}>
         <Button
@@ -81,7 +94,7 @@ export const Contact = ({ formData, setForm, navigation }) => {
           style={{float: "right"  , fontSize: 12}}
           color="primary"
           variant="contained"
-          onClick={() => navigation.next()}
+          onClick={Validation}
         >
           Next
         </Button>

@@ -36,8 +36,12 @@ export const StudentPersonal = ({ formData, setForm, navigation }) => {
     console.log(formData);
     if(firstName==="" || lastName==="" || email==="" || password===""){
       setError("**required field is empty");
-    }else{
-      navigation.next()
+    }else {
+      if(!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)))
+        setError("**enter correct email");
+      else{
+        navigation.next()
+      }
     }
   } 
 

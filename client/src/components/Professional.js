@@ -11,9 +11,9 @@ export const Professional = ({ formData, setForm, navigation }) => {
 
   const Validation=()=>{
     console.log("clicked");
-    const { year, roll, dept, branch } = formData;
+    const { occupation, workingAt, position } = formData;
     console.log(formData);
-    if(year==="" || roll==="" || dept==="" || branch===""){
+    if(occupation==="" || workingAt==="" || position===""){
       setError("**required field is empty");
     }else{
       navigation.next()
@@ -25,6 +25,7 @@ export const Professional = ({ formData, setForm, navigation }) => {
       
     <Container maxWidth="xs">
       <h3><em>Professional details</em></h3>
+      <div id='dataInvalid' class='text-danger'>{error}</div>
       <TextField
         label="Occupation"
         name="occupation"
@@ -34,6 +35,7 @@ export const Professional = ({ formData, setForm, navigation }) => {
         variant="outlined"
         autoComplete="off"
         fullWidth
+        required
       />
       <TextField
         label="Working at"
@@ -44,6 +46,7 @@ export const Professional = ({ formData, setForm, navigation }) => {
         variant="outlined"
         autoComplete="off"
         fullWidth
+        required
       />
       <TextField
         label="Position"
@@ -54,6 +57,7 @@ export const Professional = ({ formData, setForm, navigation }) => {
         variant="outlined"
         autoComplete="off"
         fullWidth
+        required
       />
       <TextField
           label="Achievements"
@@ -79,7 +83,7 @@ export const Professional = ({ formData, setForm, navigation }) => {
           style={{ float: "right" , fontSize: 12}}
           color="primary"
           variant="contained"
-          onClick={() => navigation.next()}
+          onClick={Validation}
         >
           Next
         </Button>
