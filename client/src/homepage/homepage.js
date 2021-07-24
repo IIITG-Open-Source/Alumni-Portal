@@ -56,32 +56,32 @@ const Home=()=>{
             <Container >
                     <CardGroup class='py-5 my-5 cardsgroup '>
 
-                        <Card className="text-center cards" style={{marginLeft:"2%"}}>
+                        <Card className="text-center cards" >
                             <Card.Body>
                                 <div class='searchIcon'>
-                                    <FontAwesomeIcon icon={faSearch} size="4x"/>
+                                    <FontAwesomeIcon icon={faSearch} size="3x"/>
                                 </div>
                             </Card.Body>
                             
-                            <Card.Header style={{color:"#F4AF1B"}}> <strong> Search Alumni </strong> </Card.Header>
+                            <Card.Header style={{color:"#F4AF1B", width:'100%'}}> <strong> Search Alumni </strong> </Card.Header>
                         </Card>
 
-                        <Card className="text-center cards " style={{ marginLeft:"2%"}}>
+                        <Card className="text-center cards " >
                             <Card.Body>
                                 <div class='searchIcon'>
-                                    <FontAwesomeIcon icon={faUserFriends} size="4x"/>
+                                    <FontAwesomeIcon icon={faUserFriends} size="3x"/>
                                 </div>
                             </Card.Body>
-                            <Card.Header style={{color:"#F4AF1B"}}> <strong> Join Alumni Network </strong> </Card.Header>
+                            <Card.Header style={{color:"#F4AF1B", width:'100%'}}> <strong> Join Alumni Network </strong> </Card.Header>
                         </Card>
 
-                        <Card className="text-center cards " style={{marginLeft:"2%"}}>
+                        <Card className="text-center cards " >
                             <Card.Body>
                                 <div class='searchIcon'>
-                                    <FontAwesomeIcon icon={faBriefcase} size="4x"/>
+                                    <FontAwesomeIcon icon={faBriefcase} size="3x"/>
                                 </div>
                             </Card.Body>
-                            <Card.Header style={{color:"#F4AF1B"}}> <strong> Find/Post a Job </strong> </Card.Header>
+                            <Card.Header style={{color:"#F4AF1B" ,width:'100%'}}> <strong> Find/Post a Job </strong> </Card.Header>
                         </Card>
 
                         </CardGroup>

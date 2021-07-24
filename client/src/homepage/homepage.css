@@ -52,6 +52,10 @@
 .cards{
     width:25%;
     margin-left:2%;
+    align-items:center ;
+    padding:0px !important;
+    justify-content:center !important;
+    height:150px;
 }
  
 #my-canvas { border:  solid rgb(224, 210, 76); }
