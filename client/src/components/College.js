@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-
+import {Card } from 'react-bootstrap';
 import NavBar from '../navbar/navbar';
 
 
@@ -50,9 +50,10 @@ export const College = ({ formData, setForm, navigation }) => {
   } 
 
   return (
-    <div>
+    <div className='pb-5'>
      
-    <Container maxWidth="xs">
+    <Container maxWidth="xs" className='pb-5'>
+      <Card>
       <h3><em>College details</em></h3>
       <div id='dataInvalid' class='text-danger'>{error}</div>
       <TextField
@@ -141,6 +142,7 @@ export const College = ({ formData, setForm, navigation }) => {
           Next
         </Button>
       </div>
+      </Card>
     </Container>
     </div>
     

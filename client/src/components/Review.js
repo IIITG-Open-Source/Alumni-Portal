@@ -76,6 +76,7 @@ export const Review = ({ formData, navigation }) => {
         
 
       })
+      navigation.next()
     });
     /*const data= await res.json();
     if(data.status=== 422 || !data){
@@ -85,9 +86,9 @@ export const Review = ({ formData, navigation }) => {
 
   }
   return (
-    <div>
+    <div className='pb-5'>
      
-      <Container maxWidth='sm'>
+      <Container maxWidth='sm' className='pb-5'>
       <h3><em>Review your details</em></h3>
       <RenderAccordion summary="Personal" go={ go } details={[
         { 'First Name': firstName },

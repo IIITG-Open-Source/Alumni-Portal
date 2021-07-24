@@ -48,8 +48,8 @@ export const Personal = ({ formData, setForm, navigation }) => {
        <Card>
        <h3 style={{'font-weight':'550'}}>Alumni Register</h3>
         <div id='dataInvalid' class='text-danger'>{error}</div>
-        <input
-          placeholder="First Name"
+        <TextField
+          label="First Name"
           
           name="firstName"
           id={firstName}
@@ -62,9 +62,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
 
           required
 
-          class='form-control'
-          style={{'padding':'20px','fontSize':'12px !important'}}
-
+          
         />
         <TextField
           label="Last Name"
@@ -77,6 +75,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
           autoComplete="off"
           fullWidth
           required
+         
         />
         <TextField
           label="Residence country"
@@ -89,6 +88,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
           autoComplete="off"
           fullWidth
           required
+          
         />
         <div className="pass-wrapper">
           {" "}
@@ -102,6 +102,7 @@ export const Personal = ({ formData, setForm, navigation }) => {
             autoComplete="off"
             fullWidth
             required
+            
           />
           <i onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>{values.showPassword ? <Visibility /> : <VisibilityOff />}</i>{" "}
         </div>
