@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const { check, validationResult } = require('express-validator')
 const mongoose = require('mongoose')
 const app = express()
-const port = 5000
+const port = 3000
 
 const Alumni = require('./models/alumniModel')
 

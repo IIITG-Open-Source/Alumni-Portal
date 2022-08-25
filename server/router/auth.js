@@ -6,6 +6,7 @@ const bcrypt = require('bcryptjs');
 require ('../db/conn');
 const Alumni = require('../models/alumniModel')
 const Student = require('../models/studentModel')
+const Job= require('../models/jobModel')
 router.get('/api',(req,res)=>{
     //res.send(`Hello world from the server router js`);
     Alumni.find({ })
@@ -114,6 +115,29 @@ router.post('/login',async (req,res)=>{
 
 });
 
+router.post('/Jobs',(req,res)=>{
+    const {JobRole,CompanyName,TypeofJob,Tenure,Salary,SkillsRequired}=req.body;
+
+    if(!JobRole || !CompanyName || !TypeofJob || !Salary || !SkillsRequired){
+        return res.status(422).json({error:"Field can't be empty"})
+
+    }
+    Job.findOne({JobRole:JobRole,CompanyName:CompanyName}).then((jobExist)=>{
+          if(jobExist){
+              return res.status(422).json({error:"Job Role already present"})
+          }
+
+          const job = new Job({JobRole,CompanyName,TypeofJob,Tenure,Salary,SkillsRequired})
+
+          job.save().then(()=>{
+              return res.status(200).json({message:"New Job Role entered"})
+          }).catch((err)=>{
+              return res.status(500).json({error:err})
+          })
+    }).catch((err)=>console.log(err)) 
+    
+
+})
 
 //module.exports=router; 
 

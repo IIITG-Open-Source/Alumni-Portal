@@ -15,7 +15,7 @@ const AlumniPage=()=>{
     const [searchTerm,setSearchTerm]=useState("")
   
    
-    const getAlumnis=async(filterBranch,filterDept)=>{
+    const getAlumnis=async(filterBranch,filterDept,filterYear)=>{
        /*axios.get('/api')
        .then((response)=>{
            console.log("DATA")
@@ -40,16 +40,16 @@ const AlumniPage=()=>{
        console.log(alumnis)
        
        
-      if(filterDept || filterBranch)
+      if(filterDept || filterBranch || filterYear)
       {
-        if(filterBranch!==' ' && filterDept!==' '){
+        if(filterBranch!==' ' && filterDept!==' ' && filterYear!==' '){
             console.log(filterBranch, filterDept)
             const updatedItems=data.filter((curItem)=>{
-                return curItem.branch === filterBranch && curItem.dept === filterDept
+                return curItem.branch === filterBranch && curItem.dept === filterDept && curItem.year== filterYear
             });
             setAlumnis(updatedItems)
           }
-           if(filterDept === ' '){
+         else  if(filterDept === ' '){
             console.log(filterBranch, filterDept)
             const updatedItems=data.filter((curItem)=>{
                 return curItem.branch === filterBranch 
@@ -65,6 +65,15 @@ const AlumniPage=()=>{
             setAlumnis(updatedItems)
     
           }
+          else if(filterYear === ' '){
+           // console.log('dept')
+         /// console.log(filterBranch, filterDept)
+          const updatedItems=data.filter((curItem)=>{
+              return curItem.year=== filterYear
+          });
+          setAlumnis(updatedItems)
+  
+        }
     
       }
 
@@ -102,16 +111,16 @@ const AlumniPage=()=>{
 
                     <div>
                         <DropdownButton id="dropdown-basic-button" class='customDropdown' title="Course">
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            
+                            <Dropdown.Item id="cse" name="course" value="cse"  onClick={()=>getAlumnis('CSE',' ',' ')}>CSE</Dropdown.Item>
+                            <Dropdown.Item id="ece" name="course" value="ece"  onClick={()=>getAlumnis('ECE',' ',' ')}>ECE</Dropdown.Item>
                         </DropdownButton>
                     </div>
                     <div>
                         <DropdownButton id="dropdown-basic-button" title="Branch">
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            <Dropdown.Item id="btech" name="branch" value="btech"  onClick={()=>getAlumnis(' ','B.Tech',' ')} >B. Tech</Dropdown.Item>
+                            <Dropdown.Item id="mtech" name="branch" value="mtech"  onClick={()=>getAlumnis(' ','M.Tech',' ')}>M. Tech</Dropdown.Item>
+                            <Dropdown.Item id="pHD" name="branch" value="pHD"  onClick={()=>getAlumnis(' ','pHD',' ')}>pHD</Dropdown.Item>
                         </DropdownButton>
                     </div>
                     <div>
